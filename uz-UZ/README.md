@@ -1920,9 +1920,9 @@ console.log(Object.keys(person));
 
 #### Javob: B
 
-With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
+`defineProperty` usuli yordamida biz obyektga yangi xususiyatlar qo'shishimiz yoki mavjudlarini o'zgartirishimiz mumkin. `defineProperty` usuli orqali obyektga xususiyat qo'shganimizda, ular sukut bo'yicha _hisobga olinmaydi_ (enumerable emas). `Object.keys` usuli obyektdan barcha _hisobga olinadigan_ xususiyat nomlarini qaytaradi, bu holatda faqat `"name"` qaytadi.
 
-Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
+`defineProperty` usuli orqali qo'shilgan xususiyatlar sukut bo'yicha o'zgarmas hisoblanadi. Siz bu xatti-harakatni `writable`, `configurable` va `enumerable` xususiyatlari yordamida o'zgartirishingiz mumkin. Shunday qilib, `defineProperty` usuli sizga obyektga qo'shayotgan xususiyatlar ustidan ko'proq nazorat beradi.
 
 </p>
 </details>
@@ -1952,11 +1952,11 @@ console.log(data);
 
 #### Javob: A
 
-The second argument of `JSON.stringify` is the _replacer_. The replacer can either be a function or an array, and lets you control what and how the values should be stringified.
+`JSON.stringify`ning ikkinchi argumenti _replacer_ (almashtiruvchi)dir. Replacer funksiya yoki massiv bo'lishi mumkin va qaysi qiymatlar va qanday usulda stringga aylantirilishini nazorat qilishga imkon beradi.
 
-If the replacer is an _array_, only the property names included in the array will be added to the JSON string. In this case, only the properties with the names `"level"` and `"health"` are included, `"username"` is excluded. `data` is now equal to `"{"level":19, "health":90}"`.
+Agar replacer _massiv_ bo'lsa, faqat massivda ko'rsatilgan xususiyat nomlari JSON stringga qo'shiladi. Bu holatda faqat `"level"` va `"health"` nomli xususiyatlar kiritiladi, `"username"` chiqarib tashlanadi. `data` endi `"{"level":19, "health":90}"` ga teng.
 
-If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
+Agar replacer _funksiya_ bo'lsa, bu funksiya siz stringga aylantirmoqchi bo'lgan obyektning har bir xususiyati uchun chaqiriladi. Bu funksiyadan qaytarilgan qiymat JSON stringga qo'shilganda xususiyatning qiymati bo'ladi. Agar qiymat `undefined` bo'lsa, bu xususiyat JSON stringdan chiqarib tashlanadi.
 
 </p>
 </details>
@@ -1988,9 +1988,9 @@ console.log(num2);
 
 #### Javob: A
 
-The unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `num1` is `10`, since the `increaseNumber` function first returns the value of `num`, which is `10`, and only increments the value of `num` afterwards.
+Unary `++` operatori _avval_ operandning qiymatini qaytaradi, _keyin_ operandning qiymatini oshiradi. `num1`ning qiymati `10`, chunki `increaseNumber` funksiyasi avval `num`ning qiymatini qaytaradi, ya'ni `10`, va faqat shundan keyin `num`ning qiymatini oshiradi.
 
-`num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
+`num2` ham `10`, chunki biz `num1`ni `increasePassedNumber`ga uzatdik. `number` `10`ga teng (`num1`ning qiymati). Yana, unary `++` operatori _avval_ operandning qiymatini qaytaradi, _keyin_ operandning qiymatini oshiradi. `number`ning qiymati `10`, shuning uchun `num2` ham `10`ga teng.
 
 </p>
 </details>
@@ -2360,8 +2360,7 @@ console.log(result);
 
 `.push()` metodi massivning uzunligini qaytaradi! Dastlab, massiv bitta elementdan iborat edi (`"banana"`) va `1`ta uzunlikka ega edi. Massivga `"apple"`ni qo'shgandan keyin esa, massiv 2 ta elementga ega bo'ldi, uzunligi ham 1 ga ortdi. Bu esa `addToList` funksiyasidan qaytarildi.
 
-
-`push` metodi `original` massivni yangilaydi. Agar siz _massiv_ning o'zini qaytarmoqchi bo'lsangiz, yangi element qo'shilgach `list`ni qaytarish kifoya.
+`push` metodi `original` massivni yangilaydi. Agar siz \_massiv_ning o'zini qaytarmoqchi bo'lsangiz, yangi element qo'shilgach `list`ni qaytarish kifoya.
 
 </p>
 </details>
@@ -2429,6 +2428,7 @@ const { firstName } = { firstName: "Lydia" };
 
 console.log(firstName); // "Lydia"
 ```
+
 Shuningdek, obyektdan ajratib olingan xususiyat keyinchalik boshqa nom bilan ham o'zgartirilishi mumkin:
 
 ```javascript
@@ -2471,24 +2471,24 @@ function sum(a, b) {
 }
 ```
 
-- A: Yes
-- B: No
+- A: Ha
+- B: Yo'q
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-A pure function is a function that _always_ returns the same result, if the same arguments are passed.
+Sof funksiya - bu bir xil argumentlar uzatilganda _doimo_ bir xil natijani qaytaradigan funksiya.
 
-The `sum` function always returns the same result. If we pass `1` and `2`, it will _always_ return `3` without side effects. If we pass `5` and `10`, it will _always_ return `15`, and so on. This is the definition of a pure function.
+`sum` funksiyasi doimo bir xil natijani qaytaradi. Agar biz `1` va `2` ni uzatsak, u yon ta'sirlarsiz _doimo_ `3` ni qaytaradi. Agar biz `5` va `10` ni uzatsak, u _doimo_ `15` ni qaytaradi va hokazo. Bu sof funksiyaning ta'rifidir.
 
 </p>
 </details>
 
 ---
 
-###### 78. What is the output?
+###### 78. Natija qanday bo'ladi?
 
 ```javascript
 const add = () => {
@@ -2520,22 +2520,22 @@ console.log(addFunction(5 * 2));
 
 #### Javob: C
 
-The `add` function is a _memoized_ function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a `cache` object that stores the previously returned values.
+`add` funksiyasi _memoizatsiya qilingan_ funksiya. Memoizatsiya yordamida biz funksiyaning natijalarini keshda saqlashimiz mumkin, bu uning bajarilishini tezlashtiradi. Bu holatda biz avval qaytarilgan qiymatlarni saqlaydigan `cache` obyektini yaratamiz.
 
-If we call the `addFunction` function again with the same argument, it first checks whether it has already gotten that value in its cache. If that's the case, the caches value will be returned, which saves on execution time. Else, if it's not cached, it will calculate the value and store it afterwards.
+Agar biz `addFunction` funksiyasini bir xil argument bilan yana chaqirsak, u avval o'zining keshida bu qiymatni olganini tekshiradi. Agar shunday bo'lsa, keshlangan qiymat qaytariladi va bu bajarilish vaqtini tejaydi. Aks holda, agar keshlangan bo'lmasa, u qiymatni hisoblab, keyin saqlaydi.
 
-We call the `addFunction` function three times with the same value: on the first invocation, the value of the function when `num` is equal to `10` isn't cached yet. The condition of the if-statement `num in cache` returns `false`, and the else block gets executed: `Calculated! 20` gets logged, and the value of the result gets added to the cache object. `cache` now looks like `{ 10: 20 }`.
+Biz `addFunction` funksiyasini bir xil qiymat bilan uch marta chaqiramiz: birinchi chaqiruvda `num` `10` ga teng bo'lganda funksiyaning qiymati hali keshlanmagan. `num in cache` if shartining natijasi `false` qaytaradi va else bloki bajariladi: `Calculated! 20` chiqariladi va natija qiymati cache obyektiga qo'shiladi. `cache` endi `{ 10: 20 }` ko'rinishida.
 
-The second time, the `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
+Ikkinchi marta `cache` obyekti `10` uchun qaytariladigan qiymatni o'z ichiga oladi. `num in cache` if shartining natijasi `true` qaytaradi va `'From cache! 20'` chiqariladi.
 
-The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
+Uchinchi marta biz funksiyaga `5 * 2` ni uzatamiz, bu `10` ga teng. `cache` obyekti `10` uchun qaytariladigan qiymatni o'z ichiga oladi. `num in cache` if shartining natijasi `true` qaytaradi va `'From cache! 20'` chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 79. What is the output?
+###### 79. Natija qanday bo'ladi?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
@@ -2549,30 +2549,30 @@ for (let item of myLifeSummedUp) {
 }
 ```
 
-- A: `0` `1` `2` `3` and `"☕"` `"💻"` `"🍷"` `"🍫"`
-- B: `"☕"` `"💻"` `"🍷"` `"🍫"` and `"☕"` `"💻"` `"🍷"` `"🍫"`
-- C: `"☕"` `"💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
+- A: `0` `1` `2` `3` va `"☕"` `"💻"` `"🍷"` `"🍫"`
+- B: `"☕"` `"💻"` `"🍷"` `"🍫"` va `"☕"` `"💻"` `"🍷"` `"🍫"`
+- C: `"☕"` `"💻"` `"🍷"` `"🍫"` va `0` `1` `2` `3`
+- D: `0` `1` `2` `3` va `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-With a _for-in_ loop, we can iterate over **enumerable** properties. In an array, the enumerable properties are the "keys" of array elements, which are actually their indexes. You could see an array as:
+_for-in_ sikli bilan biz **sanab o'tiladigan** xususiyatlar bo'ylab takrorlashimiz mumkin. Massivda sanab o'tiladigan xususiyatlar massiv elementlarining "kalitlari"dir, aslida ularning indekslari. Siz massivni quyidagicha ko'rishingiz mumkin:
 
 `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
-Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
+Bu yerda kalitlar sanab o'tiladigan xususiyatlardir. `0` `1` `2` `3` chiqariladi.
 
-With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the o&apos;zgaruvchi "item" is equal to the element it's currently iterating over, `"☕"` `"💻"` `"🍷"` `"🍫"` get logged.
+_for-of_ sikli bilan biz **takrorlanuvchilar** bo'ylab takrorlashimiz mumkin. Massiv takrorlanuvchidir. Massiv bo'ylab takrorlanganimizda, "item" o'zgaruvchisi hozirda takrorlanayotgan elementga teng bo'ladi, `"☕"` `"💻"` `"🍷"` `"🍫"` chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 80. What is the output?
+###### 80. Natija qanday bo'ladi?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2];
@@ -2589,16 +2589,16 @@ console.log(list);
 
 #### Javob: C
 
-Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
+Massiv elementlari har qanday qiymatni saqlashi mumkin. Raqamlar, stringlar, obyektlar, boshqa massivlar, null, boolean qiymatlar, undefined va boshqa ifodalar masalan sanalar, funksiyalar va hisob-kitoblar.
 
-The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+Element qaytarilgan qiymatga teng bo'ladi. `1 + 2` `3` ni qaytaradi, `1 * 2` `2` ni qaytaradi va `1 / 2` `0.5` ni qaytaradi.
 
 </p>
 </details>
 
 ---
 
-###### 81. What is the output?
+###### 81. Natija qanday bo'ladi?
 
 ```javascript
 function sayHi(name) {
@@ -2618,20 +2618,20 @@ console.log(sayHi());
 
 #### Javob: B
 
-By default, arguments have the value of `undefined`, unless a value has been passed to the function. In this case, we didn't pass a value for the `name` argument. `name` is equal to `undefined` which gets logged.
+Sukut bo'yicha argumentlar `undefined` qiymatiga ega, agar funksiyaga qiymat uzatilmagan bo'lsa. Bu holatda biz `name` argumenti uchun qiymat uzatmadik. `name` `undefined` ga teng va u chiqariladi.
 
-In ES6, we can overwrite this default `undefined` value with default parameters. For example:
+ES6 da biz bu sukut bo'yicha `undefined` qiymatini standart parametrlar bilan o'zgartirishimiz mumkin. Masalan:
 
 `function sayHi(name = "Lydia") { ... }`
 
-In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
+Bu holatda, agar biz qiymat uzatmasak yoki `undefined` uzatsak, `name` doimo `Lydia` stringiga teng bo'ladi.
 
 </p>
 </details>
 
 ---
 
-###### 82. What is the output?
+###### 82. Natija qanday bo'ladi?
 
 ```javascript
 var status = "😎";
@@ -2651,26 +2651,26 @@ setTimeout(() => {
 }, 0);
 ```
 
-- A: `"🥑"` and `"😍"`
-- B: `"🥑"` and `"😎"`
-- C: `"😍"` and `"😎"`
-- D: `"😎"` and `"😎"`
+- A: `"🥑"` va `"😍"`
+- B: `"🥑"` va `"😎"`
+- C: `"😍"` va `"😎"`
+- D: `"😎"` va `"😎"`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: B
 
-The value of the `this` keyword is dependent on where you use it. In a **method**, like the `getStatus` method, the `this` keyword refers to _the object that the method belongs to_. The method belongs to the `data` object, so `this` refers to the `data` object. When we log `this.status`, the `status` property on the `data` object gets logged, which is `"🥑"`.
+`this` kalit so'zining qiymati uni qayerda ishlatishingizga bog'liq. **Metodda**, masalan `getStatus` metodida, `this` kalit so'zi _metodga tegishli obyektga_ ishora qiladi. Metod `data` obyektiga tegishli, shuning uchun `this` `data` obyektiga ishora qiladi. `this.status` ni chiqarganimizda, `data` obyektidagi `status` xususiyati chiqariladi, ya'ni `"🥑"`.
 
-With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a o&apos;zgaruvchi called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
+`call` usuli bilan biz `this` kalit so'zi qaysi obyektga ishora qilishini o'zgartirishimiz mumkin. **Funksiyalarda** `this` kalit so'zi _funksiya tegishli bo'lgan obyektga_ ishora qiladi. Biz `setTimeout` funksiyasini _global obyektda_ e'lon qildik, shuning uchun `setTimeout` funksiyasi ichida `this` kalit so'zi _global obyektga_ ishora qiladi. Global obyektda `"😎"` qiymatiga ega _status_ nomli o'zgaruvchi mavjud. `this.status` ni chiqarganimizda `"😎"` chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 83. What is the output?
+###### 83. Natija qanday bo'ladi?
 
 ```javascript
 const person = {
@@ -2694,20 +2694,20 @@ console.log(person);
 
 #### Javob: A
 
-We set the o&apos;zgaruvchi `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the o&apos;zgaruvchi `city` has the value of `undefined`.
+Biz `city` o'zgaruvchisini `person` obyektidagi `city` nomli xususiyatning qiymatiga tenglashtiramiz. Bu obyektda `city` nomli xususiyat yo'q, shuning uchun `city` o'zgaruvchisi `undefined` qiymatiga ega.
 
-Note that we are _not_ referencing the `person` object itself! We simply set the o&apos;zgaruvchi `city` equal to the current value of the `city` property on the `person` object.
+E'tibor bering, biz `person` obyektining o'ziga _havola qilmayapmiz_! Biz shunchaki `city` o'zgaruvchisini `person` obyektidagi `city` xususiyatining joriy qiymatiga tenglashtiramiz.
 
-Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
+Keyin biz `city` ni `"Amsterdam"` stringiga tenglashtiramiz. Bu person obyektini o'zgartirmaydi: bu obyektga havola yo'q.
 
-When logging the `person` object, the unmodified object gets returned.
+`person` obyektini chiqarganimizda, o'zgartirilmagan obyekt qaytariladi.
 
 </p>
 </details>
 
 ---
 
-###### 84. What is the output?
+###### 84. Natija qanday bo'ladi?
 
 ```javascript
 function checkAge(age) {
@@ -2733,14 +2733,14 @@ console.log(checkAge(21));
 
 #### Javob: C
 
-o&apos;zgaruvchis with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a o&apos;zgaruvchi outside of the block it's declared in, a ReferenceError gets thrown.
+`const` va `let` kalit so'zlari bilan o'zgaruvchilar \_blok doirasi_ga ega. Blok - bu jingalak qavslar (`{ }`) orasidagi hamma narsa. Bu holatda if/else operatorlarining jingalak qavslari. Siz o'zgaruvchini e'lon qilingan blokdan tashqarida havola qila olmaysiz, ReferenceError xatosi chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 85. What kind of information would get logged?
+###### 85. Qanday ma'lumot chiqariladi?
 
 ```javascript
 fetch("https://www.website.com/api/user/1")
@@ -2748,24 +2748,24 @@ fetch("https://www.website.com/api/user/1")
   .then((res) => console.log(res));
 ```
 
-- A: The result of the `fetch` method.
-- B: The result of the second invocation of the `fetch` method.
-- C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined.
+- A: `fetch` metodining natijasi.
+- B: `fetch` metodining ikkinchi chaqiruvining natijasi.
+- C: Oldingi `.then()` dagi callback funksiyaning natijasi.
+- D: U doimo undefined bo'ladi.
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
+Ikkinchi `.then` dagi `res` ning qiymati oldingi `.then` ning qaytarilgan qiymatiga teng. Siz `.then` larni shunday zanjirlab borishingiz mumkin, bu yerda qiymat keyingi ishlovchiga uzatiladi.
 
 </p>
 </details>
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+###### 86. `hasName` ni `true` ga tenglashtirish uchun qaysi variant ishlatiladi, `true` ni argument sifatida uzata olmasangiz?
 
 ```javascript
 function getName(name) {
@@ -2783,13 +2783,13 @@ function getName(name) {
 
 #### Javob: A
 
-With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
+`!!name` bilan biz `name` ning qiymati truthy yoki falsy ekanini aniqlaymiz. Agar name truthy bo'lsa (buni tekshirmoqchimiz), `!name` `false` qaytaradi. `!false` (amalda `!!name` bu) `true` qaytaradi.
 
-By setting `hasName` equal to `name`, you set `hasName` equal to whatever value you passed to the `getName` function, not the boolean value `true`.
+`hasName` ni `name` ga tenglashtirish orqali siz `hasName` ni `getName` funksiyasiga uzatgan qiymatga tenglashtirasiz, `true` boolean qiymatiga emas.
 
-`new Boolean(true)` returns an object wrapper, not the boolean value itself.
+`new Boolean(true)` boolean qiymatning o'zi emas, balki obyekt wrapper qaytaradi.
 
-`name.length` returns the length of the passed argument, not whether it's `true`.
+`name.length` uzatilgan argumentning uzunligini qaytaradi, `true` ekanligini emas.
 
 </p>
 </details>
@@ -2812,9 +2812,9 @@ console.log("I want pizza"[0]);
 
 #### Javob: B
 
-In order to get a character at a specific index of a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case, we want to get the element with index 0, the character `"I'`, which gets logged.
+Stringning ma'lum indeksidagi belgini olish uchun kvadrat qavs yozuvidan foydalanishingiz mumkin. Stringdagi birinchi belgi 0 indeksga ega va hokazo. Bu holatda biz 0 indeksli elementni olmoqchimiz, ya'ni `"I"` belgisini, u chiqariladi.
 
-Note that this method is not supported in IE7 and below. In that case, use `.charAt()`.
+E'tibor bering, bu usul IE7 va undan pastda qo'llab-quvvatlanmaydi. Bunday holda `.charAt()` dan foydalaning.
 
 </p>
 </details>
@@ -2841,9 +2841,9 @@ sum(10);
 
 #### Javob: B
 
-You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.
+Siz standart parametrning qiymatini funksiyaning boshqa parametriga tenglashtira olasiz, agar ular standart parametrdan _oldin_ e'lon qilingan bo'lsa. Biz `sum` funksiyasiga `10` qiymatini uzatamiz. Agar `sum` funksiyasi faqat 1 ta argument qabul qilsa, bu `num2` qiymati uzatilmaganligini bildiradi va bu holatda `num1` ning qiymati uzatilgan `10` qiymatiga teng. `num2` ning standart qiymati `num1` ning qiymati, ya'ni `10`. `num1 + num2` `20` ni qaytaradi.
 
-If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error.
+Agar siz standart parametrning qiymatini _keyin_ (o'ngda) e'lon qilingan parametrga tenglashtirmoqchi bo'lsangiz, parametrning qiymati hali ishga tushirilmagan va bu xatolikka olib keladi.
 
 </p>
 </details>
@@ -2866,16 +2866,16 @@ console.log(data);
 - A: `{ default: function default(), name: "Lydia" }`
 - B: `{ default: function default() }`
 - C: `{ default: "Hello world", name: "Lydia" }`
-- D: Global object of `module.js`
+- D: `module.js` ning global obyekti
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a o&apos;zgaruvchi called `name` which has the value of the string `"Lydia"`.
+`import * as name` sintaksisi bilan biz `module.js` faylidan _barcha eksportlarni_ `index.js` fayliga `data` nomli yangi obyekt sifatida import qilamiz. `module.js` faylida ikkita eksport bor: standart eksport va nomlangan eksport. Standart eksport `"Hello World"` stringini qaytaradigan funksiya, nomlangan eksport esa `"Lydia"` stringi qiymatiga ega `name` nomli o'zgaruvchi.
 
-The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
+`data` obyekti standart eksport uchun `default` xususiyatiga ega, boshqa xususiyatlar nomlangan eksportlarning nomlari va ularning mos qiymatlariga ega.
 
 </p>
 </details>
@@ -2905,7 +2905,7 @@ console.log(typeof member);
 
 #### Javob: C
 
-Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
+Klasslar funksiya konstruktorlari uchun sintaktik shakar. `Person` klassining funksiya konstruktori sifatidagi ekvivalenti quyidagicha bo'ladi:
 
 ```javascript
 function Person(name) {
@@ -2913,7 +2913,7 @@ function Person(name) {
 }
 ```
 
-Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`.
+Funksiya konstruktorini `new` bilan chaqirish `Person` ning instance (voris) yaratishiga olib keladi, `typeof` kalit so'zi instance uchun `"object"` qaytaradi. `typeof member` `"object"` qaytaradi.
 
 </p>
 </details>
@@ -2938,9 +2938,9 @@ console.log(newList.push(5));
 
 #### Javob: D
 
-The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`.
+`.push` usuli massivning o'zini emas, balki massivning _yangi uzunligini_ qaytaradi! `newList` ni `[1, 2, 3].push(4)` ga tenglashtirib, biz `newList` ni massivning yangi uzunligiga tenglashtiramiz: `4`.
 
-Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
+Keyin biz `newList` da `.push` usulini ishlatishga harakat qilamiz. `newList` `4` raqamli qiymat bo'lgani uchun, biz `.push` usulini ishlatololmaymiz: TypeError xatosi chiqariladi.
 
 </p>
 </details>
@@ -2971,7 +2971,7 @@ console.log(giveLydiaChocolate.prototype);
 
 #### Javob: D
 
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`.
+Oddiy funksiyalar, masalan `giveLydiaPizza` funksiyasi, `constructor` xususiyatiga ega obyekt (prototype obyekt) bo'lgan `prototype` xususiyatiga ega. Biroq strelka funksiyalari, masalan `giveLydiaChocolate` funksiyasi, bu `prototype` xususiyatiga ega emas. `giveLydiaChocolate.prototype` orqali `prototype` xususiyatiga kirmoqchi bo'lganda `undefined` qaytariladi.
 
 </p>
 </details>
@@ -2991,9 +2991,9 @@ for (const [x, y] of Object.entries(person)) {
 }
 ```
 
-- A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]`
-- C: `["name", "age"]` and `undefined`
+- A: `name` `Lydia` va `age` `21`
+- B: `["name", "Lydia"]` va `["age", 21]`
+- C: `["name", "age"]` va `undefined`
 - D: `Error`
 
 <details><summary><b>Javob</b></summary>
@@ -3001,14 +3001,14 @@ for (const [x, y] of Object.entries(person)) {
 
 #### Javob: A
 
-`Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
+`Object.entries(person)` kalitlar va obyektlarni o'z ichiga olgan ichki massivlar massivini qaytaradi:
 
 `[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
-Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray.
+`for-of` sikli yordamida biz massivning har bir elementi bo'ylab, bu holatda ichki massivlar bo'ylab takrorlashimiz mumkin. Biz `for-of` siklida `const [x, y]` yordamida ichki massivlarni darhol destrukturatsiya qila olamiz. `x` ichki massivdagi birinchi elementga teng, `y` ikkinchi elementga teng.
 
-The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
-The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
+Birinchi ichki massiv `[ "name", "Lydia" ]`, `x` `"name"` ga teng, `y` `"Lydia"` ga teng, ular chiqariladi.
+Ikkinchi ichki massiv `[ "age", 21 ]`, `x` `"age"` ga teng, `y` `21` ga teng, ular chiqariladi.
 
 </p>
 </details>
@@ -3035,7 +3035,7 @@ getItems(["banana", "apple"], "pear", "orange")
 
 #### Javob: D
 
-`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.
+`...args` qolgan parametr (rest parameter). Qolgan parametrning qiymati barcha qolgan argumentlarni o'z ichiga olgan massiv bo'lib, **u faqat oxirgi parametr bo'lishi mumkin**! Bu misolda qolgan parametr ikkinchi parametr edi. Bu mumkin emas va sintaksis xatosini keltirib chiqaradi.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
@@ -3045,7 +3045,7 @@ function getItems(fruitList, favoriteFruit, ...args) {
 getItems(["banana", "apple"], "pear", "orange");
 ```
 
-The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
+Yuqoridagi misol ishlaydi. Bu `[ 'banana', 'apple', 'orange', 'pear' ]` massivini qaytaradi.
 
 </p>
 </details>
@@ -3066,9 +3066,9 @@ console.log(nums(4, 2));
 console.log(nums(1, 2));
 ```
 
-- A: `a is bigger`, `6` and `b is bigger`, `3`
-- B: `a is bigger`, `undefined` and `b is bigger`, `undefined`
-- C: `undefined` and `undefined`
+- A: `a is bigger`, `6` va `b is bigger`, `3`
+- B: `a is bigger`, `undefined` va `b is bigger`, `undefined`
+- C: `undefined` va `undefined`
 - D: `SyntaxError`
 
 <details><summary><b>Javob</b></summary>
@@ -3076,16 +3076,16 @@ console.log(nums(1, 2));
 
 #### Javob: B
 
-In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be o&apos;zgaruvchis, or keywords like `throw`, `return`, `break`, etc.
+JavaScript da biz nuqta-vergul (`;`) ni aniq yozishimiz shart emas, lekin JavaScript mexanizmi ularni operatorlardan keyin qo'shadi. Bu **Avtomatik Nuqta-vergul Kiritish** deb ataladi. Operator masalan o'zgaruvchilar yoki `throw`, `return`, `break` kabi kalit so'zlar bo'lishi mumkin.
 
-Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
+Bu yerda biz `return` operatori va boshqa qiymat `a + b` ni _yangi qatorda_ yozdik. Biroq yangi qator bo'lgani uchun mexanizm bu qaytarmoqchi bo'lgan qiymat ekanini bilmaydi. Buning o'rniga u avtomatik ravishda `return` dan keyin nuqta-vergul qo'shdi. Siz buni quyidagicha ko'rishingiz mumkin:
 
 ```javascript
 return;
 a + b;
 ```
 
-This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
+Bu `a + b` hech qachon bajarilmasligini anglatadi, chunki funksiya `return` kalit so'zidan keyin ishlashni to'xtatadi. Agar hech qanday qiymat qaytarilmasa, bu yerda bo'lgani kabi, funksiya `undefined` qaytaradi. E'tibor bering, `if/else` operatorlaridan keyin avtomatik kiritish yo'q!
 
 </p>
 </details>
@@ -3121,7 +3121,7 @@ console.log(member.name);
 
 #### Javob: B
 
-We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
+Biz klasslarni boshqa klasslar/funksiya konstruktorlariga tenglashtira olamiz. Bu holatda biz `Person` ni `AnotherPerson` ga tenglashtiramiz. Bu konstruktordagi nom `Sarah`, shuning uchun yangi `Person` instancesi `member` dagi nom xususiyati `"Sarah"`.
 
 </p>
 </details>
@@ -3139,19 +3139,19 @@ console.log(info);
 console.log(Object.keys(info));
 ```
 
-- A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
-- B: `{}` and `[]`
-- C: `{ a: "b" }` and `["a"]`
-- D: `{Symbol('a'): 'b'}` and `[]`
+- A: `{Symbol('a'): 'b'}` va `["{Symbol('a')"]`
+- B: `{}` va `[]`
+- C: `{ a: "b" }` va `["a"]`
+- D: `{Symbol('a'): 'b'}` va `[]`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: D
 
-A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ key properties on an object. The Symbol won't be visible, and an empty array is returned. When logging the entire object, all properties will be visible, even non-enumerable ones.
+Symbol _sanab o'tilmaydi_. Object.keys usuli obyektdagi barcha _sanab o'tiladigan_ kalit xususiyatlarini qaytaradi. Symbol ko'rinmaydi va bo'sh massiv qaytariladi. Butun obyektni chiqarganda barcha xususiyatlar, hatto sanab o'tilmaydigan xususiyatlar ham ko'rinadi.
 
-This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
+Bu symbolning ko'plab sifatlaridan biri: mutlaqo noyob qiymatni ifodalashdan tashqari (masalan bir xil obyektga xususiyat qo'shmoqchi bo'lgan 2 ta kutubxona bilan ishlayotganda tasodifiy nom to'qnashuvini oldini oladi), siz bu usul bilan obyektlarda xususiyatlarni "yashira" ham olasiz (garchi to'liq emas. Siz hali ham `Object.getOwnPropertySymbols()` usuli yordamida symbollarga kira olasiz).
 
 </p>
 </details>
@@ -3171,25 +3171,25 @@ console.log(getList(list))
 console.log(getUser(user))
 ```
 
-- A: `[1, [2, 3, 4]]` and `SyntaxError`
-- B: `[1, [2, 3, 4]]` and `{ name: "Lydia", age: 21 }`
-- C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
-- D: `Error` and `{ name: "Lydia", age: 21 }`
+- A: `[1, [2, 3, 4]]` va `SyntaxError`
+- B: `[1, [2, 3, 4]]` va `{ name: "Lydia", age: 21 }`
+- C: `[1, 2, 3, 4]` va `{ name: "Lydia", age: 21 }`
+- D: `Error` va `{ name: "Lydia", age: 21 }`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
+`getList` funksiyasi argument sifatida massiv qabul qiladi. `getList` funksiyasining qavslari orasida biz bu massivni darhol destrukturatsiya qilamiz. Siz buni quyidagicha ko'rishingiz mumkin:
 
 `[x, ...y] = [1, 2, 3, 4]`
 
-With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+Qolgan parametr `...y` bilan biz barcha "qolgan" argumentlarni massivga joylashtiramiz. Bu holatda qolgan argumentlar `2`, `3` va `4`. `y` ning qiymati barcha qolgan parametrlarni o'z ichiga olgan massiv. Bu holatda `x` ning qiymati `1` ga teng, shuning uchun `[x, y]` ni chiqarganimizda `[1, [2, 3, 4]]` chiqariladi.
 
-The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to instantly return an _object_ from an arrow function, you have to write it between parentheses, otherwise everything between the two braces will be interpreted as a block statement. In this case the code between the braces is not a valid JavaScript code, so a `SyntaxError` gets thrown.
+`getUser` funksiyasi obyekt qabul qiladi. Strelka funksiyalari bilan, agar biz faqat bitta qiymat qaytarsak, jingalak qavslarni yozishimiz shart emas. Biroq, agar siz strelka funksiyasidan darhol _obyekt_ qaytarmoqchi bo'lsangiz, uni qavslar orasiga yozishingiz kerak, aks holda ikki jingalak qavs orasidagi hamma narsa blok operatori sifatida talqin qilinadi. Bu holatda qavslar orasidagi kod to'g'ri JavaScript kodi emas, shuning uchun `SyntaxError` chiqariladi.
 
-The following function would have returned an object:
+Quyidagi funksiya obyekt qaytargan bo'lardi:
 
 `const getUser = user => ({ name: user.name, age: user.age })`
 
@@ -3216,22 +3216,22 @@ console.log(name());
 
 #### Javob: C
 
-The o&apos;zgaruvchi `name` holds the value of a string, which is not a function, thus cannot invoke.
+`name` o'zgaruvchisi string qiymatini saqlaydi, bu funksiya emas, shuning uchun chaqirib bo'lmaydi.
 
-TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
+TypeError qiymat kutilgan turda bo'lmagan paytda chiqariladi. JavaScript `name` ning funksiya bo'lishini kutdi, chunki biz uni chaqirmoqchi bo'ldik. Lekin u string edi, shuning uchun TypeError chiqariladi: name funksiya emas!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`.
-ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
+SyntaxError to'g'ri JavaScript bo'lmagan narsani yozganda chiqariladi, masalan `return` so'zini `retrun` deb yozganda.
+ReferenceError JavaScript kirishga harakat qilayotgan qiymatga havola topa olmagan paytda chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 100. What's the value of output?
+###### 100. Natija qanday bo'ladi?
 
 ```javascript
-// 🎉✨ This is my 100th question! ✨🎉
+// 🎉✨ Bu mening 100-savolim! ✨🎉
 
 const output = `${[] && "Im"}possible!
 You should${"" && `n't`} see a therapist after so much JavaScript lol`;
@@ -3247,16 +3247,16 @@ You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 
 #### Javob: B
 
-`[]` is a truthy value. With the `&&` operator, the right-hand value will be returned if the left-hand value is a truthy value. In this case, the left-hand value `[]` is a truthy value, so `"Im'` gets returned.
+`[]` truthy qiymat. `&&` operatori bilan, agar chap tomon qiymati truthy bo'lsa, o'ng tomon qiymati qaytariladi. Bu holatda chap tomon qiymati `[]` truthy qiymat, shuning uchun `"Im"` qaytariladi.
 
-`""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
+`""` falsy qiymat. Agar chap tomon qiymati falsy bo'lsa, hech narsa qaytarilmaydi. `n't` qaytarilmaydi.
 
 </p>
 </details>
 
 ---
 
-###### 101. What's the value of output?
+###### 101. Natija qanday bo'ladi?
 
 ```javascript
 const one = false || {} || null;
@@ -3276,20 +3276,20 @@ console.log(one, two, three);
 
 #### Javob: C
 
-With the `||` operator, we can return the first truthy operand. If all values are falsy, the last operand gets returned.
+`||` operatori bilan biz birinchi truthy operandni qaytara olamiz. Agar barcha qiymatlar falsy bo'lsa, oxirgi operand qaytariladi.
 
-`(false || {} || null)`: the empty object `{}` is a truthy value. This is the first (and only) truthy value, which gets returned. `one` is equal to `{}`.
+`(false || {} || null)`: bo'sh obyekt `{}` truthy qiymat. Bu birinchi (va yagona) truthy qiymat, u qaytariladi. `one` `{}` ga teng.
 
-`(null || false || "")`: all operands are falsy values. This means that the last operand, `""` gets returned. `two` is equal to `""`.
+`(null || false || "")`: barcha operandlar falsy qiymatlar. Bu oxirgi operand `""` qaytarilishini anglatadi. `two` `""` ga teng.
 
-`([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
+`([] || 0 || "")`: bo'sh massiv `[]` truthy qiymat. Bu birinchi truthy qiymat, u qaytariladi. `three` `[]` ga teng.
 
 </p>
 </details>
 
 ---
 
-###### 102. What's the value of output?
+###### 102. Natija qanday bo'ladi?
 
 ```javascript
 const myPromise = () => Promise.resolve("I have resolved!");
@@ -3308,32 +3308,32 @@ firstFunction();
 secondFunction();
 ```
 
-- A: `I have resolved!`, `second` and `I have resolved!`, `second`
-- B: `second`, `I have resolved!` and `second`, `I have resolved!`
-- C: `I have resolved!`, `second` and `second`, `I have resolved!`
-- D: `second`, `I have resolved!` and `I have resolved!`, `second`
+- A: `I have resolved!`, `second` va `I have resolved!`, `second`
+- B: `second`, `I have resolved!` va `second`, `I have resolved!`
+- C: `I have resolved!`, `second` va `second`, `I have resolved!`
+- D: `second`, `I have resolved!` va `I have resolved!`, `second`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: D
 
-With a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._
+Promise bilan biz asosan _men bu funksiyani bajarmoqchiman, lekin bu ancha vaqt olishi mumkin bo'lgani uchun uni hozircha chetga qo'yaman. Faqat ma'lum qiymat resolve (yoki reject) bo'lganda va call stack bo'sh bo'lganda, men bu qiymatni ishlatmoqchiman_ deymiz.
 
-We can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently.
+Biz bu qiymatni `.then` va `async` funksiyadagi `await` kalit so'zi bilan olishimiz mumkin. Garchi biz promise qiymatini `.then` va `await` ikkalasi bilan ham olsak, ular biroz boshqacha ishlaydi.
 
-In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.
+`firstFunction` da biz (qandaydir) myPromise funksiyasini u ishlayotgan paytda chetga qo'ydik, lekin boshqa kodni bajarishni davom ettirdik, bu holatda `console.log('second')`. Keyin funksiya `I have resolved` stringi bilan resolve bo'ldi, va callstack bo'sh ekanini ko'rgandan keyin chiqarildi.
 
-With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved before moving to the next line.
+`secondFunction` dagi await kalit so'zi bilan biz async funksiyaning bajarilishini qiymat resolve bo'lgunga qadar tom ma'noda to'xtatamiz, keyin keyingi qatorga o'tamiz.
 
-This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged.
+Bu `myPromise` ning `I have resolved` qiymati bilan resolve bo'lishini kutganini anglatadi va faqat bu sodir bo'lgandan keyin keyingi qatorga o'tdik: `second` chiqarildi.
 
 </p>
 </details>
 
 ---
 
-###### 103. What's the value of output?
+###### 103. Natija qanday bo'ladi?
 
 ```javascript
 const set = new Set();
@@ -3357,20 +3357,20 @@ for (let item of set) {
 
 #### Javob: C
 
-The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.
+`+` operatori faqat raqamli qiymatlarni qo'shish uchun emas, balki stringlarni birlashtirish uchun ham ishlatiladi. JavaScript mexanizmi bir yoki bir nechta qiymat raqam emasligini ko'rganda, raqamni stringga aylantiradi.
 
-The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
+Birinchisi `1`, bu raqamli qiymat. `1 + 2` `3` raqamini qaytaradi.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`.
+Biroq ikkinchisi `"Lydia"` string. `"Lydia"` string va `2` raqam: `2` stringga aylantiriladi. `"Lydia"` va `"2"` birlashtiriladi va natijada `"Lydia2"` string hosil bo'ladi.
 
-`{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[object Object]"`. `"[object Object]"` concatenated with `"2"` becomes `"[object Object]2"`.
+`{ name: "Lydia" }` obyekt. Na raqam, na obyekt string emas, shuning uchun ikkalasi ham stringga aylantiriladi. Oddiy obyektni stringga aylantirgan paytimizda u `"[object Object]"` bo'ladi. `"[object Object]"` va `"2"` birlashtirilganda `"[object Object]2"` bo'ladi.
 
 </p>
 </details>
 
 ---
 
-###### 104. What's its value?
+###### 104. Natija qanday bo'ladi?
 
 ```javascript
 Promise.resolve(5);
@@ -3378,7 +3378,7 @@ Promise.resolve(5);
 
 - A: `5`
 - B: `Promise {<pending>: 5}`
-- C: `Promise {<fulfilled>: 5}`
+- C: `Promise {<fulfilled>: 5}`
 - D: `Error`
 
 <details><summary><b>Javob</b></summary>
@@ -3386,16 +3386,16 @@ Promise.resolve(5);
 
 #### Javob: C
 
-We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value (`<fulfilled>`). If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
+Biz `Promise.resolve` ga har qanday turdagi qiymat berishimiz mumkin, promise yoki promise bo'lmagan. Usulning o'zi resolve qilingan qiymat bilan promise qaytaradi (`<fulfilled>`). Agar siz oddiy funksiya bersangiz, u oddiy qiymat bilan resolve qilingan promise bo'ladi. Agar siz promise bersangiz, u berilgan promise ning resolve qilingan qiymati bilan resolve qilingan promise bo'ladi.
 
-In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`.
+Bu holatda biz faqat `5` raqamli qiymatini berdik. U `5` qiymati bilan resolve qilingan promise qaytaradi.
 
 </p>
 </details>
 
 ---
 
-###### 105. What's its value?
+###### 105. Natija qanday bo'ladi?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -3421,20 +3421,20 @@ compareMembers(person);
 
 #### Javob: B
 
-Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references.
+Obyektlar havola bo'yicha uzatiladi. Obyektlarni qattiq tenglik (`===`) uchun tekshirgan paytimizda, biz ularning havolalarini solishtiramiz.
 
-We set the default value for `person2` equal to the `person` object, and passed the `person` object as the value for `person1`.
+Biz `person2` ning standart qiymatini `person` obyektiga tenglashtirdik va `person1` qiymati sifatida `person` obyektini berdik.
 
-This means that both values have a reference to the same spot in memory, thus they are equal.
+Bu ikki qiymat ham xotiradagi bir xil joyga havola qilishini anglatadi, shuning uchun ular teng.
 
-The code block in the `else` statement gets run, and `They are the same!` gets logged.
+`else` operatoridagi kod bloki bajariladi va `They are the same!` chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 106. What's its value?
+###### 106. Natija qanday bo'ladi?
 
 ```javascript
 const colorConfig = {
@@ -3460,18 +3460,18 @@ console.log(colorConfig.colors[1]);
 
 #### Javob: D
 
-In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`).
+JavaScript da obyekt xususiyatlariga kirish uchun ikki usul bor: kvadrat qavs yozuvi yoki nuqta yozuvi. Bu misolda biz kvadrat qavs yozuvi (`colorConfig["colors"]`) o'rniga nuqta yozuvidan (`colorConfig.colors`) foydalanamiz.
 
-With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no property called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
+Nuqta yozuvi bilan JavaScript obyektda aynan o'sha nomdagi xususiyatni topishga harakat qiladi. Bu misolda JavaScript `colorConfig` obyektida `colors` nomli xususiyatni topishga harakat qiladi. `colors` nomli xususiyat yo'q, shuning uchun bu `undefined` qaytaradi. Keyin biz `[1]` yordamida birinchi elementning qiymatiga kirishga harakat qilamiz. Biz buni `undefined` qiymatida qila olmaymiz, shuning uchun `TypeError` chiqariladi: `Cannot read property '1' of undefined`.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object.
+JavaScript operatorlarni talqin qiladi (yoki ajratadi). Kvadrat qavs yozuvidan foydalanganimizda, u birinchi ochilgan qavsni `[` ko'radi va yopilgan qavsni `]` topguncha davom etadi. Faqat shunda u operatorni baholaydi. Agar biz `colorConfig[colors[1]]` ishlatgan bo'lsak, u `colorConfig` obyektidagi `red` xususiyatining qiymatini qaytargan bo'lardi.
 
 </p>
 </details>
 
 ---
 
-###### 107. What's its value?
+###### 107. Natija qanday bo'ladi?
 
 ```javascript
 console.log("❤️" === "❤️");
@@ -3485,14 +3485,14 @@ console.log("❤️" === "❤️");
 
 #### Javob: A
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true.
+Ichkarisida emojilar unicode hisoblanadi. Yurak emojisi uchun unicode `"U+2764 U+FE0F"`. Bular bir xil emojilar uchun doimo bir xil, shuning uchun biz ikkita teng stringni bir-biri bilan solishtiramiz va bu true qaytaradi.
 
 </p>
 </details>
 
 ---
 
-###### 108. Which of these methods modifies the original array?
+###### 108. Qaysi usullar asl massivni o'zgartiradi?
 
 ```javascript
 const emojis = ["✨", "🥑", "😍"];
@@ -3505,7 +3505,7 @@ emojis.slice(1, 2, "✨");
 emojis.splice(1, 2, "✨");
 ```
 
-- A: `All of them`
+- A: `Barchasi`
 - B: `map` `reduce` `slice` `splice`
 - C: `map` `slice` `splice`
 - D: `splice`
@@ -3515,9 +3515,9 @@ emojis.splice(1, 2, "✨");
 
 #### Javob: D
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.
+`splice` usuli bilan biz elementlarni o'chirish, almashtirish yoki qo'shish orqali asl massivni o'zgartiramiz. Bu holatda biz 1-indeksdan boshlab 2 ta elementni olib tashladik (`'🥑'` va `'😍'` ni olib tashladik) va o'rniga ✨ emojisini qo'shdik.
 
-`map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
+`map`, `filter` va `slice` yangi massiv qaytaradi, `find` element qaytaradi va `reduce` qisqartirilgan qiymat qaytaradi.
 
 </p>
 </details>
@@ -3545,45 +3545,45 @@ console.log(food);
 
 #### Javob: A
 
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types don't interact by reference.
+Biz `info` obyektidagi `favoriteFood` xususiyatining qiymatini pitsa emojisi bilan stringga, ya'ni `'🍕'` ga tenglashtirdik. String primitive ma'lumot turi. JavaScript da primitive ma'lumot turlari havola bo'yicha o'zaro ta'sir qilmaydi.
 
-In JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
+JavaScript da primitive ma'lumot turlari (obyekt bo'lmagan hamma narsa) _qiymat_ bo'yicha o'zaro ta'sir qiladi. Bu holatda biz `info` obyektidagi `favoriteFood` xususiyatining qiymatini `food` massivining birinchi elementining qiymatiga tenglashtirdik, bu holatda pitsa emojisi stringi (`'🍕'`). String primitive ma'lumot turi va qiymat bo'yicha o'zaro ta'sir qiladi.
 
-Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`.
+Keyin biz `info` obyektidagi `favoriteFood` xususiyatining qiymatini o'zgartiramiz. `food` massivi o'zgarmagan, chunki `favoriteFood` ning qiymati massivdagi birinchi elementning qiymatining shunchaki _nusxasi_ edi va `food[0]` elementi bilan xotiradagi bir xil joyga havola qilmaydi. `food` ni chiqarganimizda, u hali ham asl massiv, ya'ni `['🍕', '🍫', '🥑', '🍔']`.
 
 </p>
 </details>
 
 ---
 
-###### 110. What does this method do?
+###### 110. Bu usul nima qiladi?
 
 ```javascript
 JSON.parse();
 ```
 
-- A: Parses JSON to a JavaScript value
-- B: Parses a JavaScript object to JSON
-- C: Parses any JavaScript value to JSON
-- D: Parses JSON to a JavaScript object only
+- A: JSON ni JavaScript qiymatiga aylantiradi
+- B: JavaScript obyektini JSON ga aylantiradi
+- C: Har qanday JavaScript qiymatini JSON ga aylantiradi
+- D: JSON ni faqat JavaScript obyektiga aylantiradi
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-With the `JSON.parse()` method, we can parse JSON string to a JavaScript value.
+`JSON.parse()` usuli bilan biz JSON stringini JavaScript qiymatiga aylantira olamiz.
 
 ```javascript
-// Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
+// Raqamni to'g'ri JSON ga stringify qilish, keyin JSON stringini JavaScript qiymatiga aylantirish:
 const jsonNumber = JSON.stringify(4); // '4'
 JSON.parse(jsonNumber); // 4
 
-// Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
+// Massiv qiymatini to'g'ri JSON ga stringify qilish, keyin JSON stringini JavaScript qiymatiga aylantirish:
 const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
 JSON.parse(jsonArray); // [1, 2, 3]
 
-// Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
+// Obyektni to'g'ri JSON ga stringify qilish, keyin JSON stringini JavaScript qiymatiga aylantirish:
 const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
 JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
@@ -3616,11 +3616,11 @@ getName();
 
 #### Javob: D
 
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the o&apos;zgaruvchi `name` we're trying to access. In this case, the `getName` function contains its own `name` o&apos;zgaruvchi: we declare the o&apos;zgaruvchi `name` with the `let` keyword, and with the value of `'Sarah'`.
+Har bir funksiya o'zining _bajarilish kontekstiga_ (yoki _doirasiga_) ega. `getName` funksiyasi avval o'z konteksti (doirasi) ichida kirmoqchi bo'lgan `name` o'zgaruvchisi borligini ko'rish uchun qaraydi. Bu holatda `getName` funksiyasi o'zining `name` o'zgaruvchisiga ega: biz `name` o'zgaruvchisini `let` kalit so'zi bilan va `'Sarah'` qiymati bilan e'lon qilamiz.
 
-o&apos;zgaruvchis with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the o&apos;zgaruvchis before they are declared, JavaScript throws a `ReferenceError`.
+`let` kalit so'zi bilan o'zgaruvchilar (`const` ham) hoisting qilinadi, lekin `var` dan farqli o'laroq, <i>initialize</i> qilinmaydi. Ular e'lon qilingan (initialize qilingan) qatorgacha kirish mumkin emas. Bu "temporal dead zone" deb ataladi. O'zgaruvchilar e'lon qilinishidan oldin ularga kirishga harakat qilganimizda, JavaScript `ReferenceError` chiqaradi.
 
-If we wouldn't have declared the `name` o&apos;zgaruvchi within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a o&apos;zgaruvchi called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.
+Agar biz `getName` funksiyasi ichida `name` o'zgaruvchisini e'lon qilmagan bo'lsak, javascript mexanizmi _scope chain_ bo'ylab qidirgan bo'lardi. Tashqi doirada `Lydia` qiymatiga ega `name` nomli o'zgaruvchi bor. Bunday holda u `Lydia` ni chiqargan bo'lardi.
 
 ```javascript
 let name = "Lydia";
@@ -3655,26 +3655,26 @@ console.log(one.next().value);
 console.log(two.next().value);
 ```
 
-- A: `a` and `a`
-- B: `a` and `undefined`
-- C: `['a', 'b', 'c']` and `a`
-- D: `a` and `['a', 'b', 'c']`
+- A: `a` va `a`
+- B: `a` va `undefined`
+- C: `['a', 'b', 'c']` va `a`
+- D: `a` va `['a', 'b', 'c']`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-With the `yield` keyword, we `yield` values in a generator function. With the `yield*` keyword, we can yield values from another generator function, or iterable object (for example an array).
+`yield` kalit so'zi bilan biz generator funksiyasida qiymatlarni `yield` qilamiz. `yield*` kalit so'zi bilan biz boshqa generator funksiyasidan yoki takrorlanuvchi obyektdan (masalan, massiv) qiymatlarni yield qila olamiz.
 
-In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
+`generatorOne` da biz `yield` kalit so'zi yordamida butun `['a', 'b', 'c']` massivini yield qilamiz. `one` dagi `next` usuli tomonidan qaytarilgan obyektdagi `value` xususiyatining qiymati (`one.next().value`) butun `['a', 'b', 'c']` massiviga teng.
 
 ```javascript
 console.log(one.next().value); // ['a', 'b', 'c']
 console.log(one.next().value); // undefined
 ```
 
-In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned.
+`generatorTwo` da biz `yield*` kalit so'zidan foydalanamiz. Bu `two` ning birinchi yield qilingan qiymati iteratordagi birinchi yield qilingan qiymatga teng ekanligini anglatadi. Iterator `['a', 'b', 'c']` massivi. Birinchi yield qilingan qiymat `a`, shuning uchun birinchi marta `two.next().value` ni chaqirganimizda `a` qaytariladi.
 
 ```javascript
 console.log(two.next().value); // 'a'
@@ -3704,14 +3704,14 @@ console.log(`${((x) => x)("I love")} to program`);
 
 #### Javob: A
 
-Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`.
+Template literal ichidagi ifodalar avval baholanadi. Bu string ifodaning qaytarilgan qiymatini o'z ichiga olishini anglatadi, bu holatda darhol chaqirilgan funksiya `(x => x)('I love')`. Biz `'I love'` qiymatini `x => x` strelka funksiyasiga argument sifatida uzatamiz. `x` `'I love'` ga teng, bu qaytariladi. Natijada `I love to program` hosil bo'ladi.
 
 </p>
 </details>
 
 ---
 
-###### 114. What will happen?
+###### 114. Nima sodir bo'ladi?
 
 ```javascript
 let config = {
@@ -3723,28 +3723,28 @@ let config = {
 config = null;
 ```
 
-- A: The `setInterval` callback won't be invoked
-- B: The `setInterval` callback gets invoked once
-- C: The `setInterval` callback will still be called every second
-- D: We never invoked `config.alert()`, config is `null`
+- A: `setInterval` callback chaqirilmaydi
+- B: `setInterval` callback bir marta chaqiriladi
+- C: `setInterval` callback har soniyada chaqirilishda davom etadi
+- D: Biz hech qachon `config.alert()` ni chaqirmadik, config `null`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object.
-As long as there is a reference, the object won't get garbage collected.
-Since this is an interval, setting `config` to `null` or `delete`-ing `config.alert` won't garbage-collect the interval, so the interval will still be called.
-It should be cleared with `clearInterval(config.alert)` to remove it from memory.
-Since it was not cleared, the `setInterval` callback function will still get invoked every 1000ms (1s).
+Odatda obyektlarni `null` ga tenglashtirgan paytimizda, o'sha obyektlar _garbage collect_ qilinadi, chunki bu obyektga endi havola yo'q. Biroq `setInterval` ichidagi callback funksiya strelka funksiya bo'lgani uchun (`config` obyektiga bog'langani uchun), callback funksiya hali ham `config` obyektiga havolaga ega.
+Havola mavjud ekan, obyekt garbage collect qilinmaydi.
+Bu interval bo'lgani uchun, `config` ni `null` ga o'rnatish yoki `config.alert` ni `delete` qilish interval ni garbage-collect qilmaydi, shuning uchun interval hali ham chaqiriladi.
+Uni xotiradan o'chirish uchun `clearInterval(config.alert)` bilan tozalanishi kerak.
+Tozalanmagani uchun, `setInterval` callback funksiyasi har 1000ms (1s) da chaqirilishda davom etadi.
 
 </p>
 </details>
 
 ---
 
-###### 115. Which method(s) will return the value `'Hello world!'`?
+###### 115. Qaysi usul(lar) `'Hello world!'` qiymatini qaytaradi?
 
 ```javascript
 const myMap = new Map();
@@ -3762,18 +3762,18 @@ myMap.get(() => "greeting");
 
 - A: 1
 - B: 2
-- C: 2 and 3
-- D: All of them
+- C: 2 va 3
+- D: Barchasi
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: B
 
-When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`.
+`set` usuli yordamida kalit/qiymat juftligini qo'shgan paytimizda, kalit `set` funksiyasiga uzatilgan birinchi argumentning qiymati bo'ladi va qiymat `set` funksiyasiga uzatilgan ikkinchi argument bo'ladi. Bu holatda kalit `() => 'greeting'` _funksiya_ va qiymat `'Hello world'`. `myMap` endi `{ () => 'greeting' => 'Hello world!' }`.
 
-1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.
+1 noto'g'ri, chunki kalit `'greeting'` emas, balki `() => 'greeting'`.
+3 noto'g'ri, chunki biz `get` usuliga parametr sifatida uzatish orqali yangi funksiya yaratmoqdamiz. Obyektlar _havola_ bo'yicha o'zaro ta'sir qiladi. Funksiyalar obyekt bo'lgani uchun, ikkita funksiya hech qachon qattiq teng emas, agar ular bir xil bo'lsa ham: ular xotiradagi turli joylarga havolaga ega.
 
 </p>
 </details>
@@ -3810,18 +3810,18 @@ console.log(person);
 
 #### Javob: C
 
-Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object.
+`changeAge` va `changeAgeAndName` funksiyalarining ikkalasi ham standart parametrga ega, ya'ni _yangi_ yaratilgan obyekt `{ ...person }`. Bu obyekt `person` obyektidagi barcha kalit/qiymatlarning nusxalariga ega.
 
-First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
+Avval biz `changeAge` funksiyasini chaqiramiz va unga argument sifatida `person` obyektini uzatamiz. Bu funksiya `age` xususiyatining qiymatini 1 ga oshiradi. `person` endi `{ name: "Lydia", age: 22 }`.
 
-Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
+Keyin biz `changeAgeAndName` funksiyasini chaqiramiz, lekin parametr uzatmaymiz. Buning o'rniga `x` ning qiymati _yangi_ obyektga teng: `{ ...person }`. Bu yangi obyekt bo'lgani uchun, u `person` obyektidagi xususiyatlarning qiymatlariga ta'sir qilmaydi. `person` hali ham `{ name: "Lydia", age: 22 }` ga teng.
 
 </p>
 </details>
 
 ---
 
-###### 117. Which of the following options will return `6`?
+###### 117. Quyidagi variantlardan qaysi biri `6` qaytaradi?
 
 ```javascript
 function sumValues(x, y, z) {
@@ -3839,7 +3839,7 @@ function sumValues(x, y, z) {
 
 #### Javob: C
 
-With the spread operator `...`, we can _spread_ iterables to individual elements. The `sumValues` function receives three arguments: `x`, `y` and `z`. `...[1, 2, 3]` will result in `1, 2, 3`, which we pass to the `sumValues` function.
+Spread operatori `...` bilan biz takrorlanuvchilarni alohida elementlarga _tarqata_ olamiz. `sumValues` funksiyasi uchta argument qabul qiladi: `x`, `y` va `z`. `...[1, 2, 3]` `1, 2, 3` ni beradi, buni biz `sumValues` funksiyasiga uzatamiz.
 
 </p>
 </details>
@@ -3865,7 +3865,7 @@ console.log(list[(num += 1)]);
 
 #### Javob: B
 
-With the `+=` operand, we're incrementing the value of `num` by `1`. `num` had the initial value `1`, so `1 + 1` is `2`. The item on the second index in the `list` array is 🥰, `console.log(list[2])` prints 🥰.
+`+=` operandi bilan biz `num` ning qiymatini `1` ga oshiramiz. `num` ning boshlang'ich qiymati `1` edi, shuning uchun `1 + 1` bu `2`. `list` massividagi ikkinchi indeksdagi element 🥰, `console.log(list[2])` 🥰 ni chiqaradi.
 
 </p>
 </details>
@@ -3903,12 +3903,12 @@ console.log(member.getLastName?.());
 
 #### Javob: B
 
-With the optional chaining operator `?.`, we no longer have to explicitly check whether the deeper nested values are valid or not. If we're trying to access a property on an `undefined` or `null` value (_nullish_), the expression short-circuits and returns `undefined`.
+Ixtiyoriy zanjir operatori `?.` bilan biz chuqurroq ichki qiymatlar to'g'ri yoki noto'g'ri ekanini aniq tekshirishimiz shart emas. Agar biz `undefined` yoki `null` qiymatida (_nullish_) xususiyatga kirishga harakat qilsak, ifoda qisqa tutashadi va `undefined` qaytaradi.
 
-`person.pet?.name`: `person` has a property named `pet`: `person.pet` is not nullish. It has a property called `name`, and returns `Mara`.
-`person.pet?.family?.name`: `person` has a property named `pet`: `person.pet` is not nullish. `pet` does _not_ have a property called `family`, `person.pet.family` is nullish. The expression returns `undefined`.
-`person.getFullName?.()`: `person` has a property named `getFullName`: `person.getFullName()` is not nullish and can get invoked, which returns `Lydia Hallie`.
-`member.getLastName?.()`: o&apos;zgaruvchi `member` is non existent therefore a `ReferenceError` gets thrown!
+`person.pet?.name`: `person` da `pet` nomli xususiyat bor: `person.pet` nullish emas. Unda `name` nomli xususiyat bor va `Mara` qaytaradi.
+`person.pet?.family?.name`: `person` da `pet` nomli xususiyat bor: `person.pet` nullish emas. `pet` da `family` nomli xususiyat _yo'q_, `person.pet.family` nullish. Ifoda `undefined` qaytaradi.
+`person.getFullName?.()`: `person` da `getFullName` nomli xususiyat bor: `person.getFullName()` nullish emas va chaqirilishi mumkin, `Lydia Hallie` qaytaradi.
+`member.getLastName?.()`: `member` o'zgaruvchisi mavjud emas, shuning uchun `ReferenceError` chiqariladi!
 
 </p>
 </details>
@@ -3937,7 +3937,7 @@ if (groceries.indexOf("banana")) {
 
 #### Javob: B
 
-We passed the condition `groceries.indexOf("banana")` to the if-statement. `groceries.indexOf("banana")` returns `0`, which is a falsy value. Since the condition in the if-statement is falsy, the code in the `else` block runs, and `We don't have to buy bananas!` gets logged.
+Biz if operatoriga `groceries.indexOf("banana")` shartini berdik. `groceries.indexOf("banana")` `0` qaytaradi, bu falsy qiymat. if operatoridagi shart falsy bo'lgani uchun, `else` blokidagi kod bajariladi va `We don't have to buy bananas!` chiqariladi.
 
 </p>
 </details>
@@ -3967,7 +3967,7 @@ console.log(config.language);
 
 #### Javob: D
 
-The `language` method is a `setter`. Setters don't hold an actual value, their purpose is to _modify_ properties. When calling a `setter` method, `undefined` gets returned.
+`language` usuli `setter` hisoblanadi. Setterlar haqiqiy qiymatga ega emas, ularning maqsadi xususiyatlarni _o'zgartirish_. `setter` usulini chaqirganda `undefined` qaytariladi.
 
 </p>
 </details>
@@ -3993,9 +3993,9 @@ console.log(!typeof name === "string");
 
 #### Javob: C
 
-`typeof name` returns `"string"`. The string `"string"` is a truthy value, so `!typeof name` returns the boolean value `false`. `false === "object"` and `false === "string"` both return`false`.
+`typeof name` `"string"` qaytaradi. `"string"` stringi truthy qiymat, shuning uchun `!typeof name` `false` boolean qiymatini qaytaradi. `false === "object"` va `false === "string"` ikkalasi ham `false` qaytaradi.
 
-(If we wanted to check whether the type was (un)equal to a certain type, we should've written `!==` instead of `!typeof`)
+(Agar biz turni ma'lum turga (teng yoki teng emas) tekshirmoqchi bo'lsak, `!typeof` o'rniga `!==` yozishimiz kerak edi)
 
 </p>
 </details>
@@ -4023,7 +4023,7 @@ add(4)(5)(6);
 
 #### Javob: A
 
-The `add` function returns an arrow function, which returns an arrow function, which returns an arrow function (still with me?). The first function receives an argument `x` with the value of `4`. We invoke the second function, which receives an argument `y` with the value `5`. Then we invoke the third function, which receives an argument `z` with the value `6`. When we're trying to access the value `x`, `y` and `z` within the last arrow function, the JS engine goes up the scope chain in order to find the values for `x` and `y` accordingly. This returns `4` `5` `6`.
+`add` funksiyasi strelka funksiya qaytaradi, u strelka funksiya qaytaradi, u strelka funksiya qaytaradi (hali tushunasizmi?). Birinchi funksiya `4` qiymati bilan `x` argumentini qabul qiladi. Biz ikkinchi funksiyani chaqiramiz, u `5` qiymati bilan `y` argumentini qabul qiladi. Keyin biz uchinchi funksiyani chaqiramiz, u `6` qiymati bilan `z` argumentini qabul qiladi. Oxirgi strelka funksiya ichida `x`, `y` va `z` qiymatlariga kirishga harakat qilganimizda, JS mexanizmi `x` va `y` qiymatlarini topish uchun scope chain bo'ylab yuqoriga ko'tariladi. Bu `4` `5` `6` qaytaradi.
 
 </p>
 </details>
@@ -4057,7 +4057,7 @@ async function* range(start, end) {
 
 #### Javob: C
 
-The generator function `range` returns an async object with promises for each item in the range we pass: `Promise{1}`, `Promise{2}`, `Promise{3}`. We set the o&apos;zgaruvchi `gen` equal to the async object, after which we loop over it using a `for await ... of` loop. We set the o&apos;zgaruvchi `item` equal to the returned Promise values: first `Promise{1}`, then `Promise{2}`, then `Promise{3}`. Since we're _awaiting_ the value of `item`, the resolved promise, the resolved _values_ of the promises get returned: `1`, `2`, then `3`.
+Generator funksiya `range` uzatilgan diapazon ichidagi har bir element uchun promise'lar bilan async obyekt qaytaradi: `Promise{1}`, `Promise{2}`, `Promise{3}`. Biz `gen` o'zgaruvchisini async obyektga tenglashtiramiz, keyin uni `for await ... of` sikli yordamida takrorlaymiz. Biz `item` o'zgaruvchisini qaytarilgan Promise qiymatlariga tenglashtiramiz: avval `Promise{1}`, keyin `Promise{2}`, keyin `Promise{3}`. Biz `item` qiymatini _kutayotganimiz_ uchun, resolve qilingan promise, promise'larning resolve qilingan _qiymatlari_ qaytariladi: `1`, `2`, keyin `3`.
 
 </p>
 </details>
@@ -4084,7 +4084,7 @@ myFunc(1, 2, 3);
 
 #### Javob: D
 
-`myFunc` expects an object with properties `x`, `y` and `z` as its argument. Since we're only passing three separate numeric values (1, 2, 3) instead of one object with properties `x`, `y` and `z` ({x: 1, y: 2, z: 3}), `x`, `y` and `z` have their default value of `undefined`.
+`myFunc` argumenti sifatida `x`, `y` va `z` xususiyatlariga ega obyekt kutadi. Biz `x`, `y` va `z` xususiyatlari bilan bitta obyekt (`{x: 1, y: 2, z: 3}`) o'rniga faqat uchta alohida raqamli qiymat (1, 2, 3) uzatayotganimiz uchun, `x`, `y` va `z` ning standart qiymati `undefined` ga ega.
 
 </p>
 </details>
@@ -4121,7 +4121,7 @@ console.log(getFine(130, 300));
 
 #### Javob: B
 
-With the `Intl.NumberFormat` method, we can format numeric values to any locale. We format the numeric value `130` to the `en-US` locale as a `unit` in `mile-per-hour`, which results in `130 mph`. The numeric value `300` to the `en-US` locale as a `currency` in `USD` results in `$300.00`.
+`Intl.NumberFormat` usuli bilan biz raqamli qiymatlarni istalgan localega formatlashimiz mumkin. Biz `130` raqamli qiymatini `en-US` localeda `mile-per-hour` da `unit` sifatida formatlaymiz, bu `130 mph` ni beradi. `300` raqamli qiymatini `en-US` localeda `USD` da `currency` sifatida formatlash `$300.00` ni beradi.
 
 </p>
 </details>
@@ -4147,7 +4147,7 @@ console.log(spookyItems);
 
 #### Javob: B
 
-By destructuring objects, we can unpack values from the right-hand object, and assign the unpacked value to the value of the same property name on the left-hand object. In this case, we're assigning the value "💀" to `spookyItems[3]`. This means that we're modifying the `spookyItems` array, we're adding the "💀" to it. When logging `spookyItems`, `["👻", "🎃", "🕸", "💀"]` gets logged.
+Obyektlarni destrukturatsiya qilish orqali biz o'ng tomondagi obyektdan qiymatlarni ajratishimiz va ajratilgan qiymatni chap tomondagi obyektda bir xil xususiyat nomiga assign qilishimiz mumkin. Bu holatda biz `"💀"` qiymatini `spookyItems[3]` ga assign qilmoqdamiz. Bu biz `spookyItems` massivini o'zgartirayotganimizni anglatadi, unga `"💀"` ni qo'shmoqdamiz. `spookyItems` ni chiqarganda `["👻", "🎃", "🕸", "💀"]` chiqariladi.
 
 </p>
 </details>
@@ -4177,9 +4177,9 @@ console.log(isNaN(age));
 
 #### Javob: C
 
-With the `Number.isNaN` method, you can check if the value you pass is a _numeric value_ and equal to `NaN`. `name` is not a numeric value, so `Number.isNaN(name)` returns `false`. `age` is a numeric value, but is not equal to `NaN`, so `Number.isNaN(age)` returns `false`.
+`Number.isNaN` usuli bilan siz uzatayotgan qiymat _raqamli qiymat_ ekanligini va `NaN` ga teng ekanligini tekshirishingiz mumkin. `name` raqamli qiymat emas, shuning uchun `Number.isNaN(name)` `false` qaytaradi. `age` raqamli qiymat, lekin `NaN` ga teng emas, shuning uchun `Number.isNaN(age)` `false` qaytaradi.
 
-With the `isNaN` method, you can check if the value you pass is not a number. `name` is not a number, so `isNaN(name)` returns true. `age` is a number, so `isNaN(age)` returns `false`.
+`isNaN` usuli bilan siz uzatayotgan qiymat raqam emasligini tekshirishingiz mumkin. `name` raqam emas, shuning uchun `isNaN(name)` true qaytaradi. `age` raqam, shuning uchun `isNaN(age)` `false` qaytaradi.
 
 </p>
 </details>
@@ -4209,7 +4209,7 @@ getInfo();
 
 #### Javob: D
 
-o&apos;zgaruvchis declared with the `const` keyword are not referenceable before their initialization: this is called the _temporal dead zone_. In the `getInfo` function, the o&apos;zgaruvchi `randomValue` is scoped in the functional scope of `getInfo`. On the line where we want to log the value of `typeof randomValue`, the o&apos;zgaruvchi `randomValue` isn't initialized yet: a `ReferenceError` gets thrown! The engine didn't go down the scope chain since we declared the o&apos;zgaruvchi `randomValue` in the `getInfo` function.
+`const` kalit so'zi bilan e'lon qilingan o'zgaruvchilar initialize qilinishidan oldin havola qilinmaydi: bu _temporal dead zone_ deb ataladi. `getInfo` funksiyasida `randomValue` o'zgaruvchisi `getInfo` ning funksional doirasida joylashgan. `typeof randomValue` qiymatini chiqarmoqchi bo'lgan qatorda `randomValue` o'zgaruvchisi hali initialize qilinmagan: `ReferenceError` chiqariladi! Mexanizm scope chain bo'ylab pastga tushmadi, chunki biz `getInfo` funksiyasida `randomValue` o'zgaruvchisini e'lon qildik.
 
 </p>
 </details>
@@ -4242,7 +4242,7 @@ const myPromise = Promise.resolve("Woah some cool data");
 
 #### Javob: C
 
-In the `try` block, we're logging the awaited value of the `myPromise` o&apos;zgaruvchi: `"Woah some cool data"`. Since no errors were thrown in the `try` block, the code in the `catch` block doesn't run. The code in the `finally` block _always_ runs, `"Oh finally!"` gets logged.
+`try` blokida biz `myPromise` o'zgaruvchisining kutilgan qiymatini chiqarmoqdamiz: `"Woah some cool data"`. `try` blokida hech qanday xato chiqarilmagani uchun `catch` blokidagi kod ishlamaydi. `finally` blokidagi kod _doimo_ ishlaydi, `"Oh finally!"` chiqariladi.
 
 </p>
 </details>
@@ -4267,7 +4267,7 @@ console.log(emojis.flat(1));
 
 #### Javob: B
 
-With the `flat` method, we can create a new, flattened array. The depth of the flattened array depends on the value that we pass. In this case, we passed the value `1` (which we didn't have to, that's the default value), meaning that only the arrays on the first depth will be concatenated. `['🥑']` and `['✨', '✨', ['🍕', '🍕']]` in this case. Concatenating these two arrays results in `['🥑', '✨', '✨', ['🍕', '🍕']]`.
+`flat` usuli bilan biz yangi, tekislangan massiv yaratishimiz mumkin. Tekislangan massivning chuqurligi uzatayotgan qiymatga bog'liq. Bu holatda biz `1` qiymatini uzatdik (uni uzatishimiz shart emas edi, bu standart qiymat), ya'ni faqat birinchi chuqurlikdagi massivlar birlashtiriladi. Bu holatda `['🥑']` va `['✨', '✨', ['🍕', '🍕']]`. Bu ikki massivni birlashtirish `['🥑', '✨', '✨', ['🍕', '🍕']]` ni beradi.
 
 </p>
 </details>
@@ -4307,15 +4307,11 @@ console.log(counterOne.count);
 
 #### Javob: D
 
-`counterOne` is an instance of the `Counter` class. The counter class contains a `count` property on its constructor, and an `increment` method. First, we invoked the `increment` method twice by calling `counterOne.increment()`. Currently, `counterOne.count` is `2`.
+`counterOne` `Counter` klassining instancesi. Counter klassi konstruktorida `count` xususiyati va `increment` usuliga ega. Avval biz `counterOne.increment()` ni chaqirish orqali `increment` usulini ikki marta chaqirdik. Hozirda `counterOne.count` `2`.
 
-<img src="https://i.imgur.com/KxLlTm9.png" width="400">
+Keyin biz yangi `counterTwo` o'zgaruvchisi yaratamiz va uni `counterOne` ga tenglashtiramiz. Obyektlar havola bo'yicha o'zaro ta'sir qilgani uchun, biz shunchaki `counterOne` ishora qilayotgan xotiradagi bir xil joyga yangi havola yaratmoqdamiz. Xotirada bir xil joyi bo'lgani uchun, `counterTwo` havola qilayotgan obyektga kiritilgan har qanday o'zgarish `counterOne` ga ham tegishli. Hozirda `counterTwo.count` `2`.
 
-Then, we create a new o&apos;zgaruvchi `counterTwo`, and set it equal to `counterOne`. Since objects interact by reference, we're just creating a new reference to the same spot in memory that `counterOne` points to. Since it has the same spot in memory, any changes made to the object that `counterTwo` has a reference to, also apply to `counterOne`. Currently, `counterTwo.count` is `2`.
-
-We invoke `counterTwo.increment()`, which sets `count` to `3`. Then, we log the count on `counterOne`, which logs `3`.
-
-<img src="https://i.imgur.com/BNBHXmc.png" width="400">
+Biz `counterTwo.increment()` ni chaqiramiz, bu `count` ni `3` ga o'rnatadi. Keyin biz `counterOne` dagi count ni chiqaramiz, bu `3` ni chiqaradi.
 
 </p>
 </details>
@@ -4354,26 +4350,26 @@ funcTwo();
 
 #### Javob: C
 
-First, we invoke `funcOne`. On the first line of `funcOne`, we call the _asynchronous_ `setTimeout` function, from which the callback is sent to the Web API. (see my article on the event loop <a href="https://dev.to/lydiahallie/javascript-visualized-event-loop-3dif">here</a>.)
+Avval biz `funcOne` ni chaqiramiz. `funcOne` ning birinchi qatorida biz _asinxron_ `setTimeout` funksiyasini chaqiramiz, undan callback Web API ga yuboriladi.
 
-Then we call the `myPromise` promise, which is an _asynchronous_ operation.
+Keyin biz `myPromise` promise'ini chaqiramiz, bu _asinxron_ operatsiya.
 
-Both the promise and the timeout are asynchronous operations, the function keeps on running while it's busy completing the promise and handling the `setTimeout` callback. This means that `Last line 1!` gets logged first, since this is not an asynchonous operation.
+Promise ham timeout ham asinxron operatsiyalar, funksiya promise'ni bajarish va `setTimeout` callback'ini boshqarish bilan band bo'lganda ishlashda davom etadi. Bu `Last line 1!` birinchi chiqarilishini anglatadi, chunki bu asinxron operatsiya emas.
 
-Since the callstack is not empty yet, the `setTimeout` function and promise in `funcOne` cannot get added to the callstack yet.
+Call stack hali bo'sh bo'lmagani uchun, `funcOne` dagi `setTimeout` funksiyasi va promise hali call stackga qo'shilmaydi.
 
-In `funcTwo`, the o&apos;zgaruvchi `res` gets `Promise` because `Promise.resolve(Promise.resolve('Promise'))` is equivalent to `Promise.resolve('Promise')` since resolving a promise just resolves it's value. The `await` in this line stops the execution of the function until it receives the resolution of the promise and then keeps on running synchronously until completion, so `Promise 2!` and then `Last line 2!` are logged and the `setTimeout` is sent to the Web API.
+`funcTwo` da `res` o'zgaruvchisi `Promise` qiymatini oladi, chunki `Promise.resolve(Promise.resolve('Promise'))` `Promise.resolve('Promise')` ga teng, chunki promise'ni resolve qilish shunchaki uning qiymatini resolve qiladi. Bu qatordagi `await` promise resolve bo'lgunga qadar funksiya bajarilishini to'xtatadi va keyin tugallanguncha sinxron ravishda ishlashda davom etadi, shuning uchun `Promise 2!` va keyin `Last line 2!` chiqariladi va `setTimeout` Web API ga yuboriladi.
 
-Then the call stack is empty. Promises are _microtasks_ so they are resolved first when the call stack is empty so `Promise 1!` gets to be logged.
+Keyin call stack bo'sh. Promise'lar _microtask_ bo'lgani uchun call stack bo'sh bo'lganda ular birinchi resolve qilinadi, shuning uchun `Promise 1!` chiqariladi.
 
-Now, since `funcTwo` popped off the call stack, the call stack is empty. The callbacks waiting in the queue (`() => console.log("Timeout 1!")` from `funcOne`, and `() => console.log("Timeout 2!")` from `funcTwo`) get added to the call stack one by one. The first callback logs `Timeout 1!`, and gets popped off the stack. Then, the second callback logs `Timeout 2!`, and gets popped off the stack.
+Endi `funcTwo` call stack dan chiqgani uchun call stack bo'sh. Navbatda kutayotgan callback'lar (`funcOne` dan `() => console.log("Timeout 1!")` va `funcTwo` dan `() => console.log("Timeout 2!")`) call stack ga birin-ketin qo'shiladi. Birinchi callback `Timeout 1!` ni chiqaradi va stack dan chiqariladi. Keyin ikkinchi callback `Timeout 2!` ni chiqaradi va stack dan chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 134. How can we invoke `sum` in `sum.js` from `index.js?`
+###### 134. `index.js` dan `sum.js` dagi `sum` ni qanday chaqirishimiz mumkin?
 
 ```javascript
 // sum.js
@@ -4388,14 +4384,14 @@ import * as sum from "./sum";
 - A: `sum(4)`
 - B: `sum.sum(4)`
 - C: `sum.default(4)`
-- D: Default aren't imported with `*`, only named exports
+- D: Default `*` bilan import qilinmaydi, faqat nomlangan eksportlar
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-With the asterisk `*`, we import all exported values from that file, both default and named. If we had the following file:
+Yulduzcha `*` bilan biz o'sha fayldan barcha eksport qilingan qiymatlarni, default ham nomlangan ham import qilamiz. Agar bizda quyidagi fayl bo'lsa:
 
 ```javascript
 // info.js
@@ -4408,7 +4404,7 @@ import * as info from "./info";
 console.log(info);
 ```
 
-The following would get logged:
+Quyidagi chiqariladi:
 
 ```javascript
 {
@@ -4418,13 +4414,13 @@ The following would get logged:
 }
 ```
 
-For the `sum` example, it means that the imported value `sum` looks like this:
+`sum` misoli uchun bu import qilingan `sum` qiymati quyidagicha ko'rinishini anglatadi:
 
 ```javascript
 { default: function sum(x) { return x + x } }
 ```
 
-We can invoke this function, by calling `sum.default`
+Biz bu funksiyani `sum.default` ni chaqirish orqali chaqirishimiz mumkin.
 
 </p>
 </details>
@@ -4448,27 +4444,27 @@ person.name;
 - A: `Added a new property!`
 - B: `Accessed a property!`
 - C: `Added a new property!` `Accessed a property!`
-- D: Nothing gets logged
+- D: Hech narsa chiqarilmaydi
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: C
 
-With a Proxy object, we can add custom behavior to an object that we pass to it as the second argument. In this case, we pass the `handler` object which contained two properties: `set` and `get`. `set` gets invoked whenever we _set_ property values, `get` gets invoked whenever we _get_ (access) property values.
+Proxy obyekti bilan biz ikkinchi argument sifatida uzatayotgan obyektga maxsus xatti-harakatni qo'shishimiz mumkin. Bu holatda biz ikkita xususiyatni o'z ichiga olgan `handler` obyektini uzatamiz: `set` va `get`. `set` xususiyat qiymatlarini _o'rnatganimizda_ chaqiriladi, `get` xususiyat qiymatlarini _olganimizda_ (kirganimizda) chaqiriladi.
 
-The first argument is an empty object `{}`, which is the value of `person`. To this object, the custom behavior specified in the `handler` object gets added. If we add a property to the `person` object, `set` will get invoked. If we access a property on the `person` object, `get` gets invoked.
+Birinchi argument bo'sh obyekt `{}`, bu `person` ning qiymati. Bu obyektga `handler` obyektida belgilangan maxsus xatti-harakat qo'shiladi. Agar biz `person` obyektiga xususiyat qo'shsak, `set` chaqiriladi. Agar biz `person` obyektidagi xususiyatga kirsak, `get` chaqiriladi.
 
-First, we added a new property `name` to the proxy object (`person.name = "Lydia"`). `set` gets invoked, and logs `"Added a new property!"`.
+Avval biz proxy obyektiga yangi `name` xususiyatini qo'shdik (`person.name = "Lydia"`). `set` chaqiriladi va `"Added a new property!"` chiqaradi.
 
-Then, we access a property value on the proxy object, the `get` property on the handler object got invoked. `"Accessed a property!"` gets logged.
+Keyin biz proxy obyektidagi xususiyat qiymatiga kirdik, handler obyektidagi `get` xususiyati chaqirildi. `"Accessed a property!"` chiqariladi.
 
 </p>
 </details>
 
 ---
 
-###### 136. Which of the following will modify the `person` object?
+###### 136. Quyidagilardan qaysi biri `person` obyektini o'zgartiradi?
 
 ```javascript
 const person = { name: "Lydia Hallie" };
@@ -4486,16 +4482,16 @@ Object.seal(person);
 
 #### Javob: A
 
-With `Object.seal` we can prevent new properties from being _added_, or existing properties to be _removed_.
+`Object.seal` bilan biz yangi xususiyatlarning _qo'shilishini_ yoki mavjud xususiyatlarning _o'chirilishini_ oldini olishimiz mumkin.
 
-However, you can still modify the value of existing properties.
+Biroq siz hali ham mavjud xususiyatlarning qiymatini o'zgartirishingiz mumkin.
 
 </p>
 </details>
 
 ---
 
-###### 137. Which of the following will modify the `person` object?
+###### 137. Quyidagilardan qaysi biri `person` obyektini o'zgartiradi?
 
 ```javascript
 const person = {
@@ -4518,9 +4514,9 @@ Object.freeze(person);
 
 #### Javob: C
 
-The `Object.freeze` method _freezes_ an object. No properties can be added, modified, or removed.
+`Object.freeze` usuli obyektni _muzlatadi_. Hech qanday xususiyat qo'shilmaydi, o'zgartirilmaydi yoki o'chirilmaydi.
 
-However, it only _shallowly_ freezes the object, meaning that only _direct_ properties on the object are frozen. If the property is another object, like `address` in this case, the properties on that object aren't frozen, and can be modified.
+Biroq u obyektni faqat _yuzaki_ muzlatadi, ya'ni obyektdagi faqat _bevosita_ xususiyatlar muzlatiladi. Agar xususiyat boshqa obyekt bo'lsa, bu holatda `address` kabi, o'sha obyektdagi xususiyatlar muzlatilmaydi va o'zgartirilishi mumkin.
 
 </p>
 </details>
@@ -4540,19 +4536,19 @@ myFunc();
 myFunc(3);
 ```
 
-- A: `2` `4` and `3` `6`
-- B: `2` `NaN` and `3` `NaN`
-- C: `2` `Error` and `3` `6`
-- D: `2` `4` and `3` `Error`
+- A: `2` `4` va `3` `6`
+- B: `2` `NaN` va `3` `NaN`
+- C: `2` `Error` va `3` `6`
+- D: `2` `4` va `3` `Error`
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: A
 
-First, we invoked `myFunc()` without passing any arguments. Since we didn't pass arguments, `num` and `value` got their default values: num is `2`, and `value` the returned value of the function `add`. To the `add` function, we pass `num` as an argument, which had the value of `2`. `add` returns `4`, which is the value of `value`.
+Avval biz hech qanday argument uzatmasdan `myFunc()` ni chaqirdik. Argumentlar uzatmaganimiz uchun `num` va `value` o'zlarining standart qiymatlarini oldi: num `2`, va `value` `add` funksiyasining qaytarilgan qiymati. `add` funksiyasiga biz `num` ni argument sifatida uzatamiz, u `2` qiymatiga ega edi. `add` `4` qaytaradi, bu `value` ning qiymati.
 
-Then, we invoked `myFunc(3)` and passed the value `3` as the value for the argument `num`. We didn't pass an argument for `value`. Since we didn't pass a value for the `value` argument, it got the default value: the returned value of the `add` function. To `add`, we pass `num`, which has the value of `3`. `add` returns `6`, which is the value of `value`.
+Keyin biz `myFunc(3)` ni chaqirdik va `num` argumenti uchun `3` qiymatini uzatdik. Biz `value` uchun argument uzatmadik. `value` argumenti uchun qiymat uzatmaganimiz uchun, u standart qiymatni oldi: `add` funksiyasining qaytarilgan qiymati. `add` ga biz `3` qiymatiga ega `num` ni uzatamiz. `add` `6` qaytaradi, bu `value` ning qiymati.
 
 </p>
 </details>
@@ -4590,14 +4586,14 @@ console.log(counter.#number);
 
 #### Javob: D
 
-In ES2020, we can add private o&apos;zgaruvchis in classes by using the `#`. We cannot access these o&apos;zgaruvchis outside of the class. When we try to log `counter.#number`, a SyntaxError gets thrown: we cannot acccess it outside the `Counter` class!
+ES2020 da biz `#` yordamida klasslarda private o'zgaruvchilar qo'shishimiz mumkin. Bu o'zgaruvchilarga klass tashqarisidan kira olmaymiz. `counter.#number` ni chiqarishga harakat qilganimizda SyntaxError chiqariladi: biz unga `Counter` klassi tashqarisidan kira olmaymiz!
 
 </p>
 </details>
 
 ---
 
-###### 140. What's missing?
+###### 140. Nima yetishmayapti?
 
 ```javascript
 const teams = [
@@ -4613,7 +4609,7 @@ function* getMembers(members) {
 
 function* getTeams(teams) {
   for (let i = 0; i < teams.length; i++) {
-    // ✨ SOMETHING IS MISSING HERE ✨
+    // ✨ BU YERDA NIMADIR YETISHMAYAPTI ✨
   }
 }
 
@@ -4632,9 +4628,9 @@ obj.next(); // { value: "Lisa", done: false }
 
 #### Javob: B
 
-In order to iterate over the `members` in each element in the `teams` array, we need to pass `teams[i].members` to the `getMembers` generator function. The generator function returns a generator object. In order to iterate over each element in this generator object, we need to use `yield*`.
+`teams` massividagi har bir elementdagi `members` bo'ylab takrorlash uchun biz `teams[i].members` ni `getMembers` generator funksiyasiga uzatishimiz kerak. Generator funksiya generator obyekt qaytaradi. Bu generator obyektidagi har bir element bo'ylab takrorlash uchun biz `yield*` dan foydalanishimiz kerak.
 
-If we would've written `yield`, `return yield`, or `return`, the entire generator function would've gotten returned the first time we called the `next` method.
+Agar biz `yield`, `return yield` yoki `return` yozgan bo'lsak, `next` usulini birinchi marta chaqirganimizda butun generator funksiya qaytarilgan bo'lardi.
 
 </p>
 </details>
@@ -4671,15 +4667,15 @@ console.log(person.hobbies);
 
 #### Javob: C
 
-The `addHobby` function receives two arguments, `hobby` and `hobbies` with the default value of the `hobbies` array on the `person` object.
+`addHobby` funksiyasi ikkita argument qabul qiladi: `hobby` va `hobbies`, standart qiymat sifatida `person` obyektidagi `hobbies` massivi.
 
-First, we invoke the `addHobby` function, and pass `"running"` as the value for `hobby` and an empty array as the value for `hobbies`. Since we pass an empty array as the value for `hobbies`, `"running"` gets added to this empty array.
+Avval biz `addHobby` funksiyasini chaqiramiz va `hobby` uchun `"running"` qiymatini, `hobbies` uchun bo'sh massivni uzatamiz. Bo'sh massivni `hobbies` qiymati sifatida uzatganimiz uchun `"running"` bu bo'sh massivga qo'shiladi.
 
-Then, we invoke the `addHobby` function, and pass `"dancing"` as the value for `hobby`. We didn't pass a value for `hobbies`, so it gets the default value, the `hobbies` property on the `person` object. We push the hobby `dancing` to the `person.hobbies` array.
+Keyin biz `addHobby` funksiyasini chaqiramiz va `hobby` uchun `"dancing"` qiymatini uzatamiz. Biz `hobbies` uchun qiymat uzatmadik, shuning uchun u standart qiymatni oladi - `person` obyektidagi `hobbies` xususiyati. Biz `dancing` hobbisini `person.hobbies` massiviga push qilamiz.
 
-Last, we invoke the `addHobby` function, and pass `"baking"` as the value for `hobby`, and the `person.hobbies` array as the value for `hobbies`. We push the hobby `baking` to the `person.hobbies` array.
+Oxirida biz `addHobby` funksiyasini chaqiramiz va `hobby` uchun `"baking"` qiymatini, `hobbies` uchun `person.hobbies` massivini uzatamiz. Biz `baking` hobbisini `person.hobbies` massiviga push qilamiz.
 
-After pushing `dancing` and `baking`, the value of `person.hobbies` is `["coding", "dancing", "baking"]`
+`dancing` va `baking` ni push qilgandan keyin `person.hobbies` ning qiymati `["coding", "dancing", "baking"]` bo'ladi.
 
 </p>
 </details>
@@ -4708,21 +4704,21 @@ const pet = new Flamingo();
 - A: `I'm pink. 🌸`
 - B: `I'm pink. 🌸` `I'm a bird. 🦢`
 - C: `I'm a bird. 🦢` `I'm pink. 🌸`
-- D: Nothing, we didn't call any method
+- D: Hech narsa, biz hech qanday usul chaqirmadik
 
 <details><summary><b>Javob</b></summary>
 <p>
 
 #### Javob: B
 
-We create the o&apos;zgaruvchi `pet` which is an instance of the `Flamingo` class. When we instantiate this instance, the `constructor` on `Flamingo` gets called. First, `"I'm pink. 🌸"` gets logged, after which we call `super()`. `super()` calls the constructor of the parent class, `Bird`. The constructor in `Bird` gets called, and logs `"I'm a bird. 🦢"`.
+Biz `Flamingo` klassining instancesi bo'lgan `pet` o'zgaruvchisini yaratamiz. Bu instanceni yaratganimizda `Flamingo` dagi `constructor` chaqiriladi. Avval `"I'm pink. 🌸"` chiqariladi, keyin `super()` ni chaqiramiz. `super()` ota klassi `Bird` ning konstruktorini chaqiradi. `Bird` dagi konstruktor chaqiriladi va `"I'm a bird. 🦢"` ni chiqaradi.
 
 </p>
 </details>
 
 ---
 
-###### 143. Which of the options result(s) in an error?
+###### 143. Qaysi variantlar xatoga olib keladi?
 
 ```javascript
 const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
@@ -4734,8 +4730,8 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 ```
 
 - A: 1
-- B: 1 and 2
-- C: 3 and 4
+- B: 1 va 2
+- C: 3 va 4
 - D: 3
 
 <details><summary><b>Javob</b></summary>
@@ -4743,14 +4739,14 @@ const emojis = ["🎄", "🎅🏼", "🎁", "⭐"];
 
 #### Javob: D
 
-The `const` keyword simply means we cannot _redeclare_ the value of that o&apos;zgaruvchi, it's _read-only_. However, the value itself isn't immutable. The properties on the `emojis` array can be modified, for example by pushing new values, splicing them, or setting the length of the array to 0.
+`const` kalit so'zi shunchaki o'sha o'zgaruvchining qiymatini qayta _e'lon qila olmasligimizni_ anglatadi, u _faqat o'qish uchun_. Biroq qiymatning o'zi o'zgarmas emas. `emojis` massividagi xususiyatlar o'zgartirilishi mumkin, masalan yangi qiymatlar push qilish, ularni splice qilish yoki massiv uzunligini 0 ga o'rnatish orqali.
 
 </p>
 </details>
 
 ---
 
-###### 144. What do we need to add to the `person` object to get `["Lydia Hallie", 21]` as the output of `[...person]`?
+###### 144. `[...person]` natijasida `["Lydia Hallie", 21]` olish uchun `person` obyektiga nimani qo'shishimiz kerak?
 
 ```javascript
 const person = {
@@ -4761,7 +4757,7 @@ const person = {
 [...person] // ["Lydia Hallie", 21]
 ```
 
-- A: Nothing, object are iterable by default
+- A: Hech narsa, obyektlar sukut bo'yicha takrorlanuvchi
 - B: `*[Symbol.iterator]() { for (let x in this) yield* this[x] }`
 - C: `*[Symbol.iterator]() { yield* Object.values(this) }`
 - D: `*[Symbol.iterator]() { for (let x in this) yield this }`
@@ -4771,7 +4767,7 @@ const person = {
 
 #### Javob: C
 
-Objects aren't iterable by default. An iterable is an iterable if the iterator protocol is present. We can add this manually by adding the iterator symbol `[Symbol.iterator]`, which has to return a generator object, for example by making it a generator function `*[Symbol.iterator]() {}`. This generator function has to yield the `Object.values` of the `person` object if we want it to return the array `["Lydia Hallie", 21]`: `yield* Object.values(this)`.
+Obyektlar sukut bo'yicha takrorlanuvchi emas. Takrorlanuvchi protocol mavjud bo'lsa, takrorlanuvchi hisoblanadi. Buni iterator belgisi `[Symbol.iterator]` qo'shish orqali qo'lda qo'shishimiz mumkin, bu generator obyekt qaytarishi kerak, masalan uni generator funksiya `*[Symbol.iterator]() {}` qilish orqali. Bu generator funksiya `["Lydia Hallie", 21]` massivini qaytarishni xohlasak `person` obyektining `Object.values` ini yield qilishi kerak: `yield* Object.values(this)`.
 
 </p>
 </details>
@@ -4801,7 +4797,7 @@ console.log(count);
 
 #### Javob: C
 
-The `if` condition within the `forEach` loop checks whether the value of `num` is truthy or falsy. Since the first number in the `nums` array is `0`, a falsy value, the `if` statement's code block won't be executed. `count` only gets incremented for the other 3 numbers in the `nums` array, `1`, `2` and `3`. Since `count` gets incremented by `1` 3 times, the value of `count` is `3`.
+`forEach` sikli ichidagi `if` sharti `num` ning qiymati truthy yoki falsy ekanligini tekshiradi. `nums` massividagi birinchi raqam `0` bo'lgani uchun, bu falsy qiymat, `if` operatorining kod bloki bajarilmaydi. `count` faqat `nums` massividagi boshqa 3 ta raqam uchun oshiriladi: `1`, `2` va `3`. `count` 3 marta 1 ga oshirilgani uchun `count` ning qiymati `3`.
 
 </p>
 </details>
@@ -4830,13 +4826,13 @@ getFruit([["🍍"], ["🍊", "🍌"]]);
 
 #### Javob: D
 
-The `?` allows us to optionally access deeper nested properties within objects. We're trying to log the item on index `1` within the subarray that's on index `1` of the `fruits` array. If the subarray on index `1` in the `fruits` array doesn't exist, it'll simply return `undefined`. If the subarray on index `1` in the `fruits` array exists, but this subarray doesn't have an item on its `1` index, it'll also return `undefined`.
+`?` bizga obyektlar ichidagi chuqurroq joylashgan xususiyatlarga ixtiyoriy ravishda kirish imkonini beradi. Biz `fruits` massivining 1-indeksidagi subarray ning 1-indeksidagi elementni chiqarishga harakat qilmoqdamiz. Agar `fruits` massivida 1-indeksda subarray mavjud bo'lmasa, u shunchaki `undefined` qaytaradi. Agar `fruits` massivida 1-indeksda subarray mavjud bo'lsa, lekin bu subarray da 1-indeksda element bo'lmasa, u ham `undefined` qaytaradi.
 
-First, we're trying to log the second item in the `['🍍']` subarray of `[['🍊', '🍌'], ['🍍']]`. This subarray only contains one item, which means there is no item on index `1`, and returns `undefined`.
+Avval biz `[['🍊', '🍌'], ['🍍']]` dan `['🍍']` subarray dagi ikkinchi elementni chiqarishga harakat qilmoqdamiz. Bu subarray faqat bitta elementga ega, ya'ni 1-indeksda element yo'q va `undefined` qaytaradi.
 
-Then, we're invoking the `getFruits` function without passing a value as an argument, which means that `fruits` has a value of `undefined` by default. Since we're conditionally chaining the item on index `1` of`fruits`, it returns `undefined` since this item on index `1` does not exist.
+Keyin biz `getFruits` funksiyasini argument uzatmasdan chaqirmoqdamiz, ya'ni `fruits` ning qiymati sukut bo'yicha `undefined`. `fruits` ning 1-indeksidagi elementni shartli zanjirlaganimiz uchun u `undefined` qaytaradi, chunki bu 1-indeksdagi element mavjud emas.
 
-Lastly, we're trying to log the second item in the `['🍊', '🍌']` subarray of `['🍍'], ['🍊', '🍌']`. The item on index `1` within this subarray is `🍌`, which gets logged.
+Oxirida biz `['🍍'], ['🍊', '🍌']` dan `['🍊', '🍌']` subarray dagi ikkinchi elementni chiqarishga harakat qilmoqdamiz. Bu subarray dagi 1-indeksdagi element `🍌` bo'lib, u chiqariladi.
 
 </p>
 </details>
@@ -4872,7 +4868,7 @@ console.log(calc.count);
 
 #### Javob: A
 
-We set the o&apos;zgaruvchi `calc` equal to a new instance of the `Calc` class. Then, we instantiate a new instance of `Calc`, and invoke the `increase` method on this instance. Since the count property is within the constructor of the `Calc` class, the count property is not shared on the prototype of `Calc`. This means that the value of count has not been updated for the instance calc points to, count is still `0`.
+Biz `calc` o'zgaruvchisini `Calc` klassining yangi instancesiga tenglashtiramiz. Keyin biz `Calc` ning yangi instancesini yaratamiz va bu instanceda `increase` usulini chaqiramiz. count xususiyati `Calc` klassining konstruktorida joylashgani uchun, count xususiyati `Calc` ning prototype unda baham ko'rilmaydi. Bu calc ishora qilayotgan instance uchun count qiymati yangilanmaganligini anglatadi, count hali ham `0`.
 
 </p>
 </details>
@@ -4914,7 +4910,7 @@ console.log(updatedUser === user);
 
 #### Javob: B
 
-The `updateUser` function updates the values of the `email` and `password` properties on user, if their values are passed to the function, after which the function returns the `user` object. The returned value of the `updateUser` function is the `user` object, which means that the value of updatedUser is a reference to the same `user` object that `user` points to. `updatedUser === user` equals `true`.
+`updateUser` funksiyasi user da `email` va `password` xususiyatlarining qiymatlarini yangilaydi, agar ularning qiymatlari funksiyaga uzatilsa, keyin funksiya `user` obyektini qaytaradi. `updateUser` funksiyasining qaytarilgan qiymati `user` obyekti, ya'ni updatedUser qiymati `user` ishora qilayotgan bir xil `user` obyektiga havola. `updatedUser === user` `true` ga teng.
 
 </p>
 </details>
@@ -4943,9 +4939,9 @@ console.log(fruit);
 
 #### Javob: C
 
-First, we invoke the `slice` method on the fruit array. The slice method does not modify the original array, but returns the value that it sliced off the array: the banana emoji.
-Then, we invoke the `splice` method on the fruit array. The splice method does modify the original array, which means that the fruit array now consists of `['🍊', '🍎']`.
-At last, we invoke the `unshift` method on the `fruit` array, which modifies the original array by adding the provided value, ‘🍇’ in this case, as the first element in the array. The fruit array now consists of `['🍇', '🍊', '🍎']`.
+Avval biz fruit massivida `slice` usulini chaqiramiz. slice usuli asl massivni o'zgartirmaydi, lekin massivdan kesib olingan qiymatni qaytaradi: banana emojisi.
+Keyin biz fruit massivida `splice` usulini chaqiramiz. splice usuli asl massivni o'zgartiradi, ya'ni fruit massivi endi `['🍊', '🍎']` dan iborat.
+Oxirida biz `fruit` massivida `unshift` usulini chaqiramiz, bu asl massivni berilgan qiymatni, bu holatda '🍇' ni massivning birinchi elementi sifatida qo'shish orqali o'zgartiradi. Fruit massivi endi `['🍇', '🍊', '🍎']` dan iborat.
 
 </p>
 </details>
@@ -4975,13 +4971,13 @@ console.log(animals[dog]);
 
 #### Javob: B
 
-Object keys are converted to strings.
+Obyekt kalitlari stringga aylantiriladi.
 
-Since the value of `dog` is an object, `animals[dog]` actually means that we’re creating a new property called `"object Object"` equal to the new object. `animals["object Object"]` is now equal to `{ emoji: "🐶", name: "Mara"}`.
+`dog` ning qiymati obyekt bo'lgani uchun `animals[dog]` aslida yangi obyektga teng `"object Object"` nomli yangi xususiyat yaratayotganimizni anglatadi. `animals["object Object"]` endi `{ emoji: "🐶", name: "Mara"}` ga teng.
 
-`cat` is also an object, which means that `animals[cat]` actually means that we’re overwriting the value of `animals["object Object"]` with the new cat properties.
+`cat` ham obyekt, ya'ni `animals[cat]` aslida `animals["object Object"]` ning qiymatini yangi cat xususiyatlari bilan qayta yozayotganimizni anglatadi.
 
-Logging `animals[dog]`, or actually `animals["object Object"]` since converting the `dog` object to a string results `"object Object"`, returns the `{ emoji: "🐈", name: "Sara" }`.
+`animals[dog]` ni, yoki aslida `animals["object Object"]` ni chiqarganda, chunki `dog` obyektini stringga aylantirish `"object Object"` ni beradi, `{ emoji: "🐈", name: "Sara" }` qaytariladi.
 
 </p>
 </details>
@@ -5012,7 +5008,7 @@ console.log(user.email);
 
 #### Javob: A
 
-The `updateEmail` function is an arrow function, and is not bound to the `user` object. This means that the `this` keyword is not referring to the `user` object, but refers to the global scope in this case. The value of `email` within the `user` object does not get updated. When logging the value of `user.email`, the original value of `my@email.com` gets returned.
+`updateEmail` funksiyasi strelka funksiya bo'lib, `user` obyektiga bog'lanmagan. Bu `this` kalit so'zi `user` obyektiga ishora qilmasligini anglatadi, balki bu holatda global doiraga ishora qiladi. `user` obyekti ichidagi `email` qiymati yangilanmaydi. `user.email` qiymatini chiqarganda asl qiymat `my@email.com` qaytariladi.
 
 </p>
 </details>
@@ -5048,14 +5044,14 @@ runPromises()
 
 #### Javob: D
 
-The `Promise.all` method runs the passed promises in parallel. If one promise fails, the `Promise.all` method _rejects_ with the value of the rejected promise. In this case, `promise3` rejected with the value `"Third"`. We’re catching the rejected value in the chained `catch` method on the `runPromises` invocation to catch any errors within the `runPromises` function. Only `"Third"` gets logged, since `promise3` rejected with this value.
+`Promise.all` usuli uzatilgan promise'larni parallel ravishda bajaradi. Agar bitta promise muvaffaqiyatsiz bo'lsa, `Promise.all` usuli rad etilgan promise ning qiymati bilan _rad etadi_. Bu holatda `promise3` `"Third"` qiymati bilan rad etildi. Biz rad etilgan qiymatni `runPromises` chaqiruvida zanjirli `catch` usulida `runPromises` funksiyasi ichidagi har qanday xatolarni ushlash uchun ushlamoqdamiz. Faqat `"Third"` chiqariladi, chunki `promise3` bu qiymat bilan rad etildi.
 
 </p>
 </details>
 
 ---
 
-###### 153. What should the value of `method` be to log `{ name: "Lydia", age: 22 }`?
+###### 153. `{ name: "Lydia", age: 22 }` ni chiqarish uchun `method` ning qiymati nima bo'lishi kerak?
 
 ```javascript
 const keys = ["name", "age"];
@@ -5080,9 +5076,9 @@ const method =
 
 #### Javob: C
 
-The `fromEntries` method turns a 2d array into an object. The first element in each subarray will be the key, and the second element in each subarray will be the value. In this case, we’re mapping over the `keys` array, which returns an array which first element is the item on the key array on the current index, and the second element is the item of the values array on the current index.
+`fromEntries` usuli 2d massivni obyektga aylantiradi. Har bir subarray dagi birinchi element kalit bo'ladi, ikkinchi element qiymat bo'ladi. Bu holatda biz `keys` massivi bo'ylab map qilmoqdamiz, bu birinchi elementi joriy indeksdagi keys massividagi element, ikkinchi elementi joriy indeksdagi values massividagi element bo'lgan massiv qaytaradi.
 
-This creates an array of subarrays containing the correct keys and values, which results in `{ name: "Lydia", age: 22 }`
+Bu to'g'ri kalitlar va qiymatlarni o'z ichiga olgan subarrays massivini yaratadi, natijada `{ name: "Lydia", age: 22 }` hosil bo'ladi.
 
 </p>
 </details>
@@ -5116,7 +5112,7 @@ console.log(member);
 
 #### Javob: C
 
-The default value of `address` is an empty object `{}`. When we set the o&apos;zgaruvchi `member` equal to the object returned by the `createMember` function, we didn't pass a value for address, which means that the value of address is the default empty object `{}`. An empty object is a truthy value, which means that the condition of the `address ? address : null` conditional returns `true`. The value of address is the empty object `{}`.
+`address` ning standart qiymati bo'sh obyekt `{}`. `member` o'zgaruvchisini `createMember` funksiyasi tomonidan qaytarilgan obyektga tenglashtirganimizda, biz address uchun qiymat uzatmadik, ya'ni address ning qiymati standart bo'sh obyekt `{}`. Bo'sh obyekt truthy qiymat, ya'ni `address ? address : null` shartli ifodaning sharti `true` qaytaradi. address ning qiymati bo'sh obyekt `{}`.
 
 </p>
 </details>
@@ -5146,9 +5142,9 @@ if (!typeof randomValue === "string") {
 
 #### Javob: B
 
-The condition within the `if` statement checks whether the value of `!typeof randomValue` is equal to `"string"`. The `!` operator converts the value to a boolean value. If the value is truthy, the returned value will be `false`, if the value is falsy, the returned value will be `true`. In this case, the returned value of `typeof randomValue` is the truthy value `"number"`, meaning that the value of `!typeof randomValue` is the boolean value `false`.
+`if` operatori ichidagi shart `!typeof randomValue` ning qiymati `"string"` ga teng ekanligini tekshiradi. `!` operatori qiymatni boolean qiymatga aylantiradi. Agar qiymat truthy bo'lsa, qaytarilgan qiymat `false` bo'ladi, agar qiymat falsy bo'lsa, qaytarilgan qiymat `true` bo'ladi. Bu holatda `typeof randomValue` ning qaytarilgan qiymati truthy qiymat `"number"`, ya'ni `!typeof randomValue` ning qiymati `false` boolean qiymati.
 
-`!typeof randomValue === "string"` always returns false, since we're actually checking `false === "string"`. Since the condition returned `false`, the code block of the `else` statement gets run, and `Yay it's a string!` gets logged.
+`!typeof randomValue === "string"` doimo false qaytaradi, chunki biz aslida `false === "string"` ni tekshirmoqdamiz. Shart `false` qaytargani uchun `else` operatorining kod bloki bajariladi va `Yay it's a string!` chiqariladi.
 
 </p>
 </details>
